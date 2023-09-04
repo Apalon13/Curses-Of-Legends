@@ -21,5 +21,4 @@ func inner_physics_process(_delta):
 		$"../../Debug/Direction".set_visible(true)
 		$"../../Debug/Direction2".set_visible(true)
 		
-	$"../../AnimatedSprite2D2".set_visible(false)
 	knight.animation.play("idle")
