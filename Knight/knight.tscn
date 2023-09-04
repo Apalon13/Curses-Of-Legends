@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://c6q27rgy1jfgn"]
+[gd_scene load_steps=71 format=3 uid="uid://c6q27rgy1jfgn"]
 
 [ext_resource type="Script" path="res://Knight/FSM/fsm.gd" id="1_liixu"]
 [ext_resource type="Script" path="res://Knight/knight.gd" id="1_vfxcn"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Knight/FSM/attack.gd" id="5_nuvnu"]
 [ext_resource type="Texture2D" uid="uid://b28h7jsyuewn8" path="res://Knight/Animation/idle/idle1.png" id="6_c6d7d"]
 [ext_resource type="Texture2D" uid="uid://bv8alxr6ocqrf" path="res://Knight/Animation/attack_base/attack1.png" id="6_go5e3"]
+[ext_resource type="Script" path="res://Knight/FSM/attack_y.gd" id="6_k8gc4"]
 [ext_resource type="Texture2D" uid="uid://b27xnm15ss3fd" path="res://Knight/Animation/idle/idle2.png" id="7_14eex"]
 [ext_resource type="Texture2D" uid="uid://du5mwoyx73dbn" path="res://Knight/Animation/attack_base/attack2.png" id="7_e7x18"]
 [ext_resource type="Texture2D" uid="uid://ioxplvp2bfc5" path="res://Knight/Animation/attack_base/attack3.png" id="8_4cajg"]
@@ -32,12 +33,19 @@
 [ext_resource type="Texture2D" uid="uid://cqn6dcc005bsn" path="res://Knight/Animation/run_bot_down/run_bot_down5.png" id="24_jg0r5"]
 [ext_resource type="Texture2D" uid="uid://bkejnwoapr30k" path="res://Knight/Animation/run_bot_down/run_bot_down6.png" id="25_xtp5x"]
 [ext_resource type="Texture2D" uid="uid://0bnlbo8ag7it" path="res://Knight/Animation/run_down/run-down1.png" id="26_o4qnr"]
+[ext_resource type="Texture2D" uid="uid://0iaccdn33mpq" path="res://Knight/Animation/attack_top/attack_top1.png" id="26_rn34t"]
+[ext_resource type="Texture2D" uid="uid://cwqedsn6p8ibv" path="res://Knight/Animation/attack_top/attack_top2.png" id="27_28aos"]
 [ext_resource type="Texture2D" uid="uid://35vobdf66tnm" path="res://Knight/Animation/run_down/run-down2.png" id="27_o7i80"]
 [ext_resource type="Texture2D" uid="uid://ljm81gfli74" path="res://Knight/Animation/run_down/run-down3.png" id="28_m6mov"]
+[ext_resource type="Texture2D" uid="uid://cy5xam4i35pel" path="res://Knight/Animation/attack_top/attack_top3.png" id="28_t286h"]
+[ext_resource type="Texture2D" uid="uid://bf8r2t6ofngob" path="res://Knight/Animation/attack_top/attack_top4.png" id="29_mcpbb"]
 [ext_resource type="Texture2D" uid="uid://c5jedx4mxobvw" path="res://Knight/Animation/run_down/run-down4.png" id="29_si4ns"]
+[ext_resource type="Texture2D" uid="uid://b6ckhk1xwmtav" path="res://Knight/Animation/attack_top/attack_top5.png" id="30_ab8th"]
 [ext_resource type="Texture2D" uid="uid://hvvmef75dto" path="res://Knight/Animation/run_down/run-down5.png" id="30_gd4c0"]
 [ext_resource type="Texture2D" uid="uid://woeu8thk10ot" path="res://Knight/Animation/run_down/run-down6.png" id="31_3ok7e"]
+[ext_resource type="Texture2D" uid="uid://cyqpejvav0i7r" path="res://Knight/Animation/attack_top/attack_top6.png" id="31_a1o0q"]
 [ext_resource type="Texture2D" uid="uid://bbwymjva43ls5" path="res://Knight/Animation/run_top/run-top1.png" id="32_6jvuc"]
+[ext_resource type="Texture2D" uid="uid://dyxpajg3cggsg" path="res://Knight/Animation/attack_top/attack_top7.png" id="32_k3f81"]
 [ext_resource type="Texture2D" uid="uid://e2urh6elixn7" path="res://Knight/Animation/run_top/run-top2.png" id="33_yv0oh"]
 [ext_resource type="Texture2D" uid="uid://b7gdg6nvrtfum" path="res://Knight/Animation/run_top/run-top3.png" id="34_prj4n"]
 [ext_resource type="Texture2D" uid="uid://c6x7eip4v76rk" path="res://Knight/Animation/run_top/run-top4.png" id="35_ubjpl"]
@@ -143,6 +151,32 @@ animations = [{
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5d1gh"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26_rn34t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_28aos")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_t286h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_mcpbb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_ab8th")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_a1o0q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_k3f81")
+}],
+"loop": false,
+"name": &"attack_top",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("20_p3gcn")
@@ -280,7 +314,6 @@ animations = [{
 script = ExtResource("1_vfxcn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 7.5)
 shape = SubResource("RectangleShape2D_h5qdn")
 
 [node name="FSM" type="Node" parent="."]
@@ -296,7 +329,11 @@ script = ExtResource("4_bjefn")
 [node name="Attack" type="Node" parent="FSM"]
 script = ExtResource("5_nuvnu")
 
+[node name="Attack_y" type="Node" parent="FSM"]
+script = ExtResource("6_k8gc4")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(4, -8)
 sprite_frames = SubResource("SpriteFrames_s3vfx")
 animation = &"attack"
 frame = 5
@@ -304,8 +341,12 @@ frame_progress = 1.0
 speed_scale = 2.0
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(4, -7)
 sprite_frames = SubResource("SpriteFrames_5d1gh")
-animation = &"run_bot_down"
+animation = &"attack_top"
+frame = 6
+frame_progress = 1.0
+speed_scale = 2.0
 
 [node name="Debug" type="VBoxContainer" parent="."]
 offset_left = -33.0
@@ -323,5 +364,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(5, 5)
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="FSM/Attack" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_finished" from="AnimatedSprite2D2" to="FSM/Attack_y" method="_on_animated_sprite_2d_2_animation_finished"]

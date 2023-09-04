@@ -30,6 +30,9 @@ func inner_physics_process(_delta):
 		knight.animation.set_flip_h(true)
 	elif direction > 0:
 		knight.animation.set_flip_h(false)
+		
+	if Input.is_action_just_pressed("ui_attack") and direction2 == -1 and direction == 0:
+		state_machine.change_to("Attack_y")
 	
 	if knight.velocity.x == 0 and direction == 0 and knight.velocity.y == 0 and direction2 == 0:
 		state_machine.change_to("Idle")

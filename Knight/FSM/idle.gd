@@ -1,7 +1,5 @@
 extends StatePlayer
 
-
-
 func enter(_msg: Dictionary={}):
 	knight.velocity = Vector2.ZERO
 	$"../../Debug/State".set_text(name)
