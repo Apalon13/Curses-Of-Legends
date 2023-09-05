@@ -399,22 +399,44 @@ frame = 5
 frame_progress = 1.0
 speed_scale = 2.0
 
-[node name="Debug" type="VBoxContainer" parent="."]
-offset_left = -33.0
-offset_top = -104.0
-offset_right = -1.0
-offset_bottom = -27.0
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 16)
 
-[node name="State" type="Label" parent="Debug"]
-layout_mode = 2
+[node name="DebugData" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -63.0
+offset_top = 31.0
+offset_right = -23.0
+offset_bottom = 71.0
 
-[node name="Direction" type="Label" parent="Debug"]
-layout_mode = 2
+[node name="Debug" type="VBoxContainer" parent="DebugData"]
+offset_left = -95.0
+offset_top = -96.0
+offset_right = -55.0
+offset_bottom = 20.0
 
-[node name="Direction2" type="Label" parent="Debug"]
+[node name="State" type="Label" parent="DebugData/Debug"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 0
+text = "State"
+
+[node name="Mouse" type="Label" parent="DebugData/Debug"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 0
+text = "Mou"
+
+[node name="Direction" type="Label" parent="DebugData/Debug"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 0
+text = "Dir1"
+
+[node name="Direction2" type="Label" parent="DebugData/Debug"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 0
+text = "Dir2"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(5, 5)
+zoom = Vector2(4, 4)
 
 [connection signal="animation_finished" from="AnimatedSprite2D2" to="FSM/Attack" method="_on_animated_sprite_2d_2_animation_finished"]

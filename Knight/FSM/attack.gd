@@ -1,11 +1,14 @@
 extends StatePlayer
 
-var direction = Input.get_axis("ui_l", "ui_r")
+var direction3 = Input.get_axis("ui_l", "ui_r")
 
 func enter(_msg: Dictionary={}):
-	$"../../Debug/State".set_text(name)
+	$"../../DebugData/Debug/State".set_text(name)
 
 func inner_physics_process(_delta):
+	
+	if direction3 == -1:
+		knight.animation.play("attack_back")
 	
 	knight.animation.play("attack")
 	
