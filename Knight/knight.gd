@@ -13,18 +13,26 @@ func _process(_delta):
 
 	var character_position = global_position
 	var cursor_position = get_global_mouse_position()
-	
-	ray_cast.target_position = get_local_mouse_position()	
-	
-	direction = (cursor_position - character_position).normalized()
-	$DebugData/Debug/Mouse.set_text(str(cursor_position))
-	update_orientation()
+	print(character_position, cursor_position)
+	var relative_position = cursor_position - character_position
+	var angle = rad_to_deg(atan2(relative_position.y, relative_position.x))
 
-func update_orientation():
+	update_orientation(angle)
+
+func update_orientation(angle):
 	# Вычисляем угол между вектором направления и вектором (0, 1)
-	var angle = direction.angle_to(Vector2(0, 1))
-	print(angle)
+	var directions = {
+		0: "left",
+		1: "left_down",
+		2: "down",
+		3: "right_down",
+		4: "right",
+		5: "right_top",
+		6: "top",
+		7: "left_top",
+		8: "left"
+	} 
 	
-	var dir_index = int((angle + deg_to_rad(22.5)) / deg_to_rad(45)) % 8
-	
-	rotation = dir_index * 45
+	var direction_coefficient: int = round((angle * -1 + 180) / 45)
+
+	animation.play("run_" + directions[direction_coefficient])
