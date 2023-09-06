@@ -4,6 +4,7 @@ extends Node
 
 var state_machine = null 
 
+
 func innner_unhandled_input(_event: InputEvent):
 	pass
 

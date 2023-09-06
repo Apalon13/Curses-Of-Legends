@@ -7,7 +7,6 @@ var direction = Vector2.ZERO
 
 @onready var animation = $AnimatedSprite2D2
 @onready var debug = true
-@onready var ray_cast = $RayCast2D
 
 func _process(_delta):
 
@@ -20,7 +19,7 @@ func _process(_delta):
 	update_orientation(angle)
 
 func update_orientation(angle):
-	# Вычисляем угол между вектором направления и вектором (0, 1)
+
 	var directions = {
 		0: "left",
 		1: "left_down",
@@ -32,7 +31,6 @@ func update_orientation(angle):
 		7: "left_top",
 		8: "left"
 	} 
-	
 	var direction_coefficient: int = round((angle * -1 + 180) / 45)
 
-	animation.play("run_" + directions[direction_coefficient])
+	animation.play("idle_" + directions[direction_coefficient])

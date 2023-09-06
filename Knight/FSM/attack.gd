@@ -7,11 +7,6 @@ func enter(_msg: Dictionary={}):
 
 func inner_physics_process(_delta):
 	
-	if direction3 == -1:
-		knight.animation.play("attack_back")
-	
-	knight.animation.play("attack")
-	
 	knight.velocity.x = move_toward(knight.velocity.x, 0, knight.SPEED/10)
 	knight.move_and_slide()
 

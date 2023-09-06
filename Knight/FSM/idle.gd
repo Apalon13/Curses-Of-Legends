@@ -23,5 +23,3 @@ func inner_physics_process(_delta):
 		$"../../DebugData/Debug/Direction".set_visible(true)
 		$"../../DebugData/Debug/Direction2".set_visible(true)
 		$"../../DebugData/Debug/Mouse".set_visible(true)
-		
-	knight.animation.play("idle")

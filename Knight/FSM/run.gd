@@ -29,26 +29,26 @@ func inner_physics_process(_delta):
 	if knight.velocity.x == 0 and direction == 0 and knight.velocity.y == 0 and direction2 == 0:
 		state_machine.change_to("Idle")
 		
-	if direction == 1 and direction2 == 0:
-		knight.animation.play("run")
-		
-	if direction == -1 and direction2 == 0:
-		knight.animation.play("run_back")
-		
-	if direction2 == 1 and direction == 0:
-		knight.animation.play("run_top")
-		
-	if direction2 == -1 and direction == 0:
-		knight.animation.play("run_down")
-		
-	if direction2 == -1 and direction == 1:
-		knight.animation.play("run_bot_down")
-		
-	if direction2 == 1 and direction == -1:
-		knight.animation.play("run_top_top")
-		
-	if direction2 == -1 and direction == -1:
-		knight.animation.play("run_top_down")
-		
-	if direction2 == 1 and direction == 1:
-		knight.animation.play("run_top_bot")
+#	if direction == 1 and direction2 == 0:
+#		knight.animation.play("run")
+#
+#	if direction == -1 and direction2 == 0:
+#		knight.animation.play("run_back")
+#
+#	if direction2 == 1 and direction == 0:
+#		knight.animation.play("run_top")
+#
+#	if direction2 == -1 and direction == 0:
+#		knight.animation.play("run_down")
+#
+#	if direction2 == -1 and direction == 1:
+#		knight.animation.play("run_bot_down")
+#
+#	if direction2 == 1 and direction == -1:
+#		knight.animation.play("run_top_top")
+#
+#	if direction2 == -1 and direction == -1:
+#		knight.animation.play("run_top_down")
+#
+#	if direction2 == 1 and direction == 1:
+#		knight.animation.play("run_top_bot")
