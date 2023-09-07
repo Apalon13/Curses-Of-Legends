@@ -3,7 +3,8 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const HP = 100.0
-var direction = Vector2.ZERO
+
+@onready var direction = "right"
 
 @onready var animation = $AnimatedSprite2D2
 @onready var debug = true
@@ -31,5 +32,5 @@ func update_orientation(angle):
 		8: "left"
 	} 
 	var direction_coefficient: int = round((angle * -1 + 180) / 45)
-
-	animation.play("idle_" + directions[direction_coefficient])
+	
+	direction = directions[direction_coefficient]

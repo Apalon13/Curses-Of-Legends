@@ -12,6 +12,12 @@ func inner_physics_process(_delta):
 	
 	if Input.is_action_just_pressed("ui_attack"):
 		state_machine.change_to("Attack")
+		
+	knight.animation.play("idle_" + knight.direction)
+	
+	debug()
+
+func debug():
 	
 	if knight.debug == false:
 		$"../../DebugData/Debug/State".set_visible(false)
