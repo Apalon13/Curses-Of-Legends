@@ -488,6 +488,8 @@ script = ExtResource("5_nuvnu")
 position = Vector2(2, -8)
 sprite_frames = SubResource("SpriteFrames_5d1gh")
 animation = &"idle_right_down"
+frame = 3
+frame_progress = 0.979826
 speed_scale = 2.0
 
 [node name="DebugData" type="Control" parent="."]

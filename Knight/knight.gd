@@ -12,7 +12,6 @@ func _process(_delta):
 
 	var character_position = global_position
 	var cursor_position = get_global_mouse_position()
-	print(character_position, cursor_position)
 	var relative_position = cursor_position - character_position
 	var angle = rad_to_deg(atan2(relative_position.y, relative_position.x))
 
