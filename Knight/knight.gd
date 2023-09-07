@@ -30,6 +30,7 @@ func update_orientation(angle):
 		7: "left_top",
 		8: "left"
 	} 
+	
 	var direction_coefficient: int = round((angle * -1 + 180) / 45)
 
 	animation.play("idle_" + directions[direction_coefficient])
