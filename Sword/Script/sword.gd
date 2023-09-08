@@ -2,6 +2,7 @@ class_name Sword
 extends CharacterBody2D
 
 @onready var animationsword = $AnimatedSprite2D
+@onready var directions = "right"
 
 func _process(_delta):
 
@@ -47,4 +48,4 @@ func update_orientationsword(anglesword):
 	
 	var directionsword_coefficient: int = round((anglesword * 1 + 180) / 13.33)
 
-	animationsword.play("sword_" + directionssword[directionsword_coefficient])
+	directions = directionssword[directionsword_coefficient]

@@ -1,10 +1,9 @@
-[gd_scene load_steps=101 format=3 uid="uid://c6q27rgy1jfgn"]
+[gd_scene load_steps=100 format=3 uid="uid://c6q27rgy1jfgn"]
 
 [ext_resource type="Script" path="res://Knight/FSM/fsm.gd" id="1_liixu"]
 [ext_resource type="Script" path="res://Knight/knight.gd" id="1_vfxcn"]
 [ext_resource type="Script" path="res://Knight/FSM/idle.gd" id="3_2nbhh"]
 [ext_resource type="Script" path="res://Knight/FSM/run.gd" id="4_bjefn"]
-[ext_resource type="Script" path="res://Knight/FSM/attack.gd" id="5_nuvnu"]
 [ext_resource type="Texture2D" uid="uid://bc12r4ht8kob2" path="res://Knight/Animation/idle_down/idle-down1.png" id="6_ima4j"]
 [ext_resource type="Texture2D" uid="uid://bf5xtvxqfjemi" path="res://Knight/Animation/idle_down/idle-down2.png" id="7_cug2j"]
 [ext_resource type="Texture2D" uid="uid://clv32beynjapr" path="res://Knight/Animation/idle_down/idle-down3.png" id="8_238ec"]
@@ -481,9 +480,6 @@ script = ExtResource("3_2nbhh")
 [node name="Run" type="Node" parent="FSM"]
 script = ExtResource("4_bjefn")
 
-[node name="Attack" type="Node" parent="FSM"]
-script = ExtResource("5_nuvnu")
-
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -8)
 sprite_frames = SubResource("SpriteFrames_5d1gh")
@@ -529,5 +525,3 @@ text = "Dir2"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
-
-[connection signal="animation_finished" from="AnimatedSprite2D2" to="FSM/Attack" method="_on_animated_sprite_2d_2_animation_finished"]
