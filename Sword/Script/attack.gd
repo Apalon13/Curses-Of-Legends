@@ -1,15 +1,33 @@
 extends StateSword
 
-var direction3 = Input.get_axis("ui_l", "ui_r")
-
-func enter(_msg: Dictionary={}):
-	pass
-
 func inner_physics_process(_delta):
-	pass
+
+	if sword.directionsattacks == "attack":
+		sword.zones.set_rotation(-93)
+		sword.zones.set_monitoring(true)
+	if sword.directionsattacks == "top_attack":
+		sword.zones.set_rotation(93)
+		sword.zones.set_monitoring(true)
+	if sword.directionsattacks == "left_attack":
+		sword.zones.set_scale(Vector2(-1, 1))
+		sword.zones.set_monitoring(true)
+	if sword.directionsattacks == "right_attack":
+		sword.zones.set_scale(Vector2(1, 1))
+		sword.zones.set_monitoring(true)
+
+	sword.animationsword.play("sword_" + sword.directionsattacks)
 
 func _on_animated_sprite_2d_animation_finished():
+	sword.zones.set_monitoring(false)
+	sword.zones.set_rotation(0)
 	if Input.is_action_just_pressed("ui_attack"):
 		state_sword_machine.change_to("Attack")
 	else:
 		state_sword_machine.change_to("Idle")
+
+
+func _on_attack_1_area_entered(area):
+	print(area.owner.name)
+	if area.has_method("hit"):
+		area.hit()
+

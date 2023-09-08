@@ -1,11 +1,15 @@
-[gd_scene load_steps=35 format=3 uid="uid://cn5bcopxly73q"]
+[gd_scene load_steps=51 format=3 uid="uid://cn5bcopxly73q"]
 
 [ext_resource type="Script" path="res://Sword/Script/sword.gd" id="1_2w6ni"]
 [ext_resource type="Texture2D" uid="uid://dw76efoxj7vsh" path="res://Sword/Animetion/sword_down.png" id="1_dbden"]
+[ext_resource type="Texture2D" uid="uid://b24lamrojn27r" path="res://Sword/Animetion/sword_attack1.png" id="2_mpefb"]
 [ext_resource type="Texture2D" uid="uid://b7ja7i246lpxt" path="res://Sword/Animetion/sword_down_left6.png" id="2_oblac"]
 [ext_resource type="Texture2D" uid="uid://bdyymdxb473qd" path="res://Sword/Animetion/sword_down_left2.png" id="3_ce1ma"]
+[ext_resource type="Texture2D" uid="uid://js7r1btor4dq" path="res://Sword/Animetion/sword_attack2.png" id="3_gsfj3"]
+[ext_resource type="Texture2D" uid="uid://cmh3x27q3lof8" path="res://Sword/Animetion/sword_attack3.png" id="4_1hhfw"]
 [ext_resource type="Texture2D" uid="uid://djoref0xkqjcq" path="res://Sword/Animetion/sword_down_left3.png" id="4_gibh8"]
 [ext_resource type="Texture2D" uid="uid://drgftqkxsmxkr" path="res://Sword/Animetion/sword_down_left4.png" id="5_0cxo7"]
+[ext_resource type="Texture2D" uid="uid://j0ngjde1duhs" path="res://Sword/Animetion/sword_attack4.png" id="5_3gpxa"]
 [ext_resource type="Texture2D" uid="uid://bp6r7o2qr48kq" path="res://Sword/Animetion/sword_down_left5.png" id="6_jqxqo"]
 [ext_resource type="Texture2D" uid="uid://hnksmqpbk8i4" path="res://Sword/Animetion/sword_left.png" id="7_jmvk4"]
 [ext_resource type="Texture2D" uid="uid://dm7eid4ess546" path="res://Sword/Animetion/sword_left_top.png" id="8_blgm8"]
@@ -16,8 +20,12 @@
 [ext_resource type="Texture2D" uid="uid://c23qy22kg7450" path="res://Sword/Animetion/sword_left_top5.png" id="12_0hv14"]
 [ext_resource type="Texture2D" uid="uid://coarjr52valor" path="res://Sword/Animetion/sword_left_top6.png" id="13_38tru"]
 [ext_resource type="Texture2D" uid="uid://bbiqp01qt5bay" path="res://Sword/Animetion/sword_right.png" id="14_4am5v"]
+[ext_resource type="Texture2D" uid="uid://d1time20csk7" path="res://Sword/Animetion/sword_left_attack1.png" id="14_s334c"]
+[ext_resource type="Texture2D" uid="uid://bqcxayihknn8c" path="res://Sword/Animetion/sword_left_attack2.png" id="15_7jmn0"]
 [ext_resource type="Texture2D" uid="uid://bnn5gdrtq6sey" path="res://Sword/Animetion/sword_right_down.png" id="15_yd5t6"]
+[ext_resource type="Texture2D" uid="uid://dfhc4d7afr8kg" path="res://Sword/Animetion/sword_left_attack3.png" id="16_u1vx4"]
 [ext_resource type="Texture2D" uid="uid://bdded3825d74c" path="res://Sword/Animetion/sword_right_down2.png" id="16_y0s3u"]
+[ext_resource type="Texture2D" uid="uid://xhh5jto2ojs5" path="res://Sword/Animetion/sword_left_attack4.png" id="17_jfjah"]
 [ext_resource type="Texture2D" uid="uid://dv8j28ffq8s8n" path="res://Sword/Animetion/sword_right_down3.png" id="17_ua8jk"]
 [ext_resource type="Texture2D" uid="uid://d22dthj8x1i2j" path="res://Sword/Animetion/sword_right_down4.png" id="18_c6quf"]
 [ext_resource type="Texture2D" uid="uid://d04822vgg08nx" path="res://Sword/Animetion/sword_right_down5.png" id="19_tggif"]
@@ -27,14 +35,39 @@
 [ext_resource type="Texture2D" uid="uid://b71wsxey3x3gu" path="res://Sword/Animetion/sword_top_right2.png" id="23_c45id"]
 [ext_resource type="Texture2D" uid="uid://c1tytuhxmse7i" path="res://Sword/Animetion/sword_top_right3.png" id="24_3obpx"]
 [ext_resource type="Texture2D" uid="uid://ctndkfti8atfx" path="res://Sword/Animetion/sword_top_right4.png" id="25_dvqwf"]
+[ext_resource type="Texture2D" uid="uid://cg7ofan4twspt" path="res://Sword/Animetion/sword_right_attack1.png" id="25_qsqly"]
 [ext_resource type="Texture2D" uid="uid://dr3chegvkvck5" path="res://Sword/Animetion/sword_top_right5.png" id="26_gejae"]
+[ext_resource type="Texture2D" uid="uid://bsk1vpskvxtwp" path="res://Sword/Animetion/sword_right_attack2.png" id="26_hc6af"]
 [ext_resource type="Texture2D" uid="uid://ksavjqhif3fo" path="res://Sword/Animetion/sword_top_right6.png" id="27_76b5n"]
+[ext_resource type="Texture2D" uid="uid://bx2kl1mrywpvo" path="res://Sword/Animetion/sword_right_attack3.png" id="27_kor3l"]
+[ext_resource type="Texture2D" uid="uid://dlcqj4dqi36fy" path="res://Sword/Animetion/sword_right_attack4.png" id="28_64xb8"]
+[ext_resource type="Texture2D" uid="uid://bxr5pnpbyngk1" path="res://Sword/Animetion/sword_top_attack1.png" id="28_idtrr"]
+[ext_resource type="Texture2D" uid="uid://c35w64qienjjh" path="res://Sword/Animetion/sword_top_attack2.png" id="29_mucg7"]
 [ext_resource type="Script" path="res://Sword/Script/fsm.gd" id="30_1p7xc"]
+[ext_resource type="Texture2D" uid="uid://cikb733oe0otk" path="res://Sword/Animetion/sword_top_attack3.png" id="30_a5xve"]
 [ext_resource type="Script" path="res://Sword/Script/idle.gd" id="31_6j7ns"]
+[ext_resource type="Texture2D" uid="uid://cqfe370wu46f8" path="res://Sword/Animetion/sword_top_attack4.png" id="31_jwx6a"]
 [ext_resource type="Script" path="res://Sword/Script/attack.gd" id="32_pdr2e"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5b067"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mpefb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gsfj3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1hhfw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3gpxa")
+}],
+"loop": false,
+"name": &"sword_attack",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_dbden")
@@ -101,6 +134,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("14_s334c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_7jmn0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_u1vx4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_jfjah")
+}],
+"loop": false,
+"name": &"sword_left_attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("8_blgm8")
 }],
 "loop": true,
@@ -153,6 +203,23 @@ animations = [{
 }],
 "loop": true,
 "name": &"sword_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_qsqly")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_hc6af")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_kor3l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_64xb8")
+}],
+"loop": false,
+"name": &"sword_right_attack",
 "speed": 5.0
 }, {
 "frames": [{
@@ -213,6 +280,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("28_idtrr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_mucg7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_a5xve")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_jwx6a")
+}],
+"loop": false,
+"name": &"sword_top_attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("22_h1que")
 }],
 "loop": true,
@@ -261,19 +345,19 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5o72p"]
-size = Vector2(20, 22)
+size = Vector2(2, 2)
 
 [node name="Sword" type="CharacterBody2D"]
-collision_layer = 2
-collision_mask = 2
+collision_mask = 0
 script = ExtResource("1_2w6ni")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(4, 5)
 sprite_frames = SubResource("SpriteFrames_5b067")
-animation = &"sword_down_left3"
+animation = &"sword_top_attack"
+speed_scale = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_5o72p")
 
 [node name="FSM" type="Node" parent="."]
@@ -286,4 +370,17 @@ script = ExtResource("31_6j7ns")
 [node name="Attack" type="Node" parent="FSM"]
 script = ExtResource("32_pdr2e")
 
+[node name="Zones" type="Node2D" parent="."]
+
+[node name="Attack1" type="Area2D" parent="Zones"]
+collision_layer = 4
+collision_mask = 4
+monitoring = false
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Zones/Attack1"]
+position = Vector2(0, -4)
+polygon = PackedVector2Array(2, 27, 30, 13, 31, -12, -1, -24)
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="FSM/Attack" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="area_entered" from="Zones/Attack1" to="FSM/Attack" method="_on_attack_1_area_entered"]

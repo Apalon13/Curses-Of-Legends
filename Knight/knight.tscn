@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=3 uid="uid://c6q27rgy1jfgn"]
+[gd_scene load_steps=101 format=3 uid="uid://c6q27rgy1jfgn"]
 
 [ext_resource type="Script" path="res://Knight/FSM/fsm.gd" id="1_liixu"]
 [ext_resource type="Script" path="res://Knight/knight.gd" id="1_vfxcn"]
@@ -97,6 +97,7 @@
 [ext_resource type="Texture2D" uid="uid://dr0m63l37r3p4" path="res://Knight/Animation/run_right_bot/run_top_bot4.png" id="74_0kee5"]
 [ext_resource type="Texture2D" uid="uid://bd2onoagxwdgs" path="res://Knight/Animation/run_right_bot/run_top_bot5.png" id="75_jtgy3"]
 [ext_resource type="Texture2D" uid="uid://cuwlr8iijxrye" path="res://Knight/Animation/run_right_bot/run_top_bot6.png" id="76_pbasr"]
+[ext_resource type="PackedScene" uid="uid://cn5bcopxly73q" path="res://Sword/Sword.tscn" id="98_e57tw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h5qdn"]
 size = Vector2(13, 17)
@@ -464,6 +465,7 @@ animations = [{
 }]
 
 [node name="Knight" type="CharacterBody2D"]
+collision_mask = 0
 up_direction = Vector2(0, 1)
 script = ExtResource("1_vfxcn")
 
@@ -483,9 +485,7 @@ script = ExtResource("4_bjefn")
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -8)
 sprite_frames = SubResource("SpriteFrames_5d1gh")
-animation = &"idle_right_down"
-frame = 3
-frame_progress = 0.979826
+animation = &"idle_right"
 speed_scale = 2.0
 
 [node name="DebugData" type="Control" parent="."]
@@ -525,3 +525,6 @@ text = "Dir2"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
+
+[node name="Sword" parent="." instance=ExtResource("98_e57tw")]
+position = Vector2(-8, 6)
