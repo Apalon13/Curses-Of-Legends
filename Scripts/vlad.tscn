@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://nsiu7weepsvu"]
 
 [ext_resource type="Script" path="res://Scripts/vlad.gd" id="1_k7g1u"]
-[ext_resource type="Texture2D" uid="uid://cwqlwb7y7o6ob" path="res://icon.svg" id="2_ope5y"]
+[ext_resource type="Texture2D" uid="uid://dcxu7f64o1s63" path="res://Sword/Script/chrome_3sT6PwTOY8.png" id="2_1dy62"]
 [ext_resource type="Script" path="res://Scripts/hitbox.gd" id="3_3s2bh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6aqpo"]
@@ -16,9 +16,9 @@ collision_mask = 2
 script = ExtResource("1_k7g1u")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(32.5, 32)
-scale = Vector2(0.492188, 0.5)
-texture = ExtResource("2_ope5y")
+position = Vector2(32, 30)
+scale = Vector2(0.134841, 0.142045)
+texture = ExtResource("2_1dy62")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(32, 32)

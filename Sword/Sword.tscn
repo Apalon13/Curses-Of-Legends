@@ -352,9 +352,11 @@ collision_mask = 0
 script = ExtResource("1_2w6ni")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(4, 5)
+position = Vector2(2, 3)
 sprite_frames = SubResource("SpriteFrames_5b067")
-animation = &"sword_top_attack"
+animation = &"sword_left_attack"
+frame = 3
+frame_progress = 1.0
 speed_scale = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

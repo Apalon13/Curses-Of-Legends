@@ -8,7 +8,7 @@ const HP = 100.0
 
 @onready var animation = $AnimatedSprite2D2
 @onready var debug = true
-
+@onready var zones = $Zones/Attack
 func _process(_delta):
 
 	var character_position = global_position
