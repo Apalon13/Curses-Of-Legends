@@ -23,9 +23,9 @@ func debug():
 		$"../../DebugData/Debug/State".set_visible(false)
 		$"../../DebugData/Debug/Direction".set_visible(false)
 		$"../../DebugData/Debug/Direction2".set_visible(false)
-		$"../../DebugData/Debug/Mouse".set_visible(false)
+		$"../../DebugData/Debug/Speed".set_visible(false)
 	else:
 		$"../../DebugData/Debug/State".set_visible(true)
 		$"../../DebugData/Debug/Direction".set_visible(true)
 		$"../../DebugData/Debug/Direction2".set_visible(true)
-		$"../../DebugData/Debug/Mouse".set_visible(true)
+		$"../../DebugData/Debug/Speed".set_visible(true)

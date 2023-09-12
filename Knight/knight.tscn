@@ -1,4 +1,4 @@
-[gd_scene load_steps=136 format=3 uid="uid://c6q27rgy1jfgn"]
+[gd_scene load_steps=143 format=3 uid="uid://c6q27rgy1jfgn"]
 
 [ext_resource type="Script" path="res://Knight/FSM/fsm.gd" id="1_liixu"]
 [ext_resource type="Script" path="res://Knight/knight.gd" id="1_vfxcn"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Knight/FSM/run.gd" id="4_bjefn"]
 [ext_resource type="Script" path="res://Knight/FSM/attack.gd" id="5_hpurc"]
 [ext_resource type="Texture2D" uid="uid://cm703t1thjpgg" path="res://Knight/Animation/Knight_idle_all.png" id="5_o8n6o"]
+[ext_resource type="Texture2D" uid="uid://cjm17anktgu1t" path="res://Knight/Animation/Knight_attack_all2.png" id="6_cs0kr"]
 [ext_resource type="Texture2D" uid="uid://cdilytpcqvu8c" path="res://Knight/Animation/Knight_run_all.png" id="6_kkxjk"]
 [ext_resource type="Texture2D" uid="uid://cmgo4diacp0we" path="res://Knight/Animation/Knight_attack_left/Knight_attack_left1.png" id="6_pb864"]
 [ext_resource type="Texture2D" uid="uid://cyi1ytg6itreu" path="res://Knight/Animation/Knight_attack_left/Knight_attack_left2.png" id="7_umdsu"]
@@ -22,6 +23,30 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h5qdn"]
 size = Vector2(13, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qaqka"]
+atlas = ExtResource("6_cs0kr")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q06v3"]
+atlas = ExtResource("6_cs0kr")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5y7m4"]
+atlas = ExtResource("6_cs0kr")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjoh6"]
+atlas = ExtResource("6_cs0kr")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ancy"]
+atlas = ExtResource("6_cs0kr")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f75be"]
+atlas = ExtResource("6_cs0kr")
+region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5nx8p"]
 atlas = ExtResource("5_o8n6o")
@@ -483,6 +508,14 @@ region = Rect2(160, 96, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_qaqka")
+}],
+"loop": false,
+"name": &"attack_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("6_pb864")
 }, {
 "duration": 1.0,
@@ -506,6 +539,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_q06v3")
+}],
+"loop": false,
+"name": &"attack_left_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5y7m4")
+}],
+"loop": false,
+"name": &"attack_left_top",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("12_g5rts")
 }, {
 "duration": 1.0,
@@ -525,6 +574,30 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjoh6")
+}],
+"loop": false,
+"name": &"attack_right_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ancy")
+}],
+"loop": false,
+"name": &"attack_right_top",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f75be")
+}],
+"loop": false,
+"name": &"attack_top",
 "speed": 5.0
 }, {
 "frames": [{
@@ -974,7 +1047,7 @@ script = ExtResource("5_hpurc")
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -8)
 sprite_frames = SubResource("SpriteFrames_5d1gh")
-animation = &"attack_right"
+animation = &"idle_down"
 speed_scale = 2.0
 
 [node name="DebugData" type="Control" parent="."]
@@ -997,11 +1070,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 0
 text = "State"
 
-[node name="Mouse" type="Label" parent="DebugData/Debug"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 0
-text = "Mou"
-
 [node name="Direction" type="Label" parent="DebugData/Debug"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 0
@@ -1012,19 +1080,25 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 0
 text = "Dir2"
 
+[node name="Speed" type="Label" parent="DebugData/Debug"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 0
+text = "Speed"
+
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
 
 [node name="Zones" type="Node2D" parent="."]
 
-[node name="Attack" type="Area2D" parent="Zones"]
+[node name="Attack1" type="Area2D" parent="Zones"]
 collision_layer = 4
 collision_mask = 4
 monitoring = false
 monitorable = false
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Zones/Attack"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Zones/Attack1"]
+position = Vector2(9, 1)
 polygon = PackedVector2Array(-12, -36, 24, -11, 21, 9, -25, 15)
 
 [connection signal="animation_finished" from="AnimatedSprite2D2" to="FSM/Attack" method="_on_animated_sprite_2d_2_animation_finished"]
-[connection signal="area_entered" from="Zones/Attack" to="FSM/Attack" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Zones/Attack1" to="FSM/Attack" method="_on_area_2d_area_entered"]
