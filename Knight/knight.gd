@@ -1,14 +1,15 @@
 class_name Knight
 extends CharacterBody2D
 
-const SPEED = 300.0
+const BASE_SPEED = 300.0
 const HP = 100.0
+const BASE_ATK = 10.0
+const ATTACK_SPEED = 1.0
 
 @onready var direction = "right"
-
 @onready var animation = $AnimatedSprite2D2
 @onready var debug = true
-
+@onready var zones = $Zones/Attack1
 func _process(_delta):
 
 	var character_position = global_position

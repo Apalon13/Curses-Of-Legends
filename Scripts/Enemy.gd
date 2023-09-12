@@ -18,7 +18,7 @@ func actor_setup():
 func set_movement_target(target: Vector2):
 	navigation_agent.target_position = target
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	set_movement_target(movement_target.position)
 	
 	if navigation_agent.is_navigation_finished():

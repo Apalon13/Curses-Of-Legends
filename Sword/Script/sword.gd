@@ -2,6 +2,11 @@ class_name Sword
 extends CharacterBody2D
 
 @onready var animationsword = $AnimatedSprite2D
+@onready var directions = "right"
+@onready var directionsattacks = "attack"
+@onready var zones = $Zones/Attack1
+
+
 
 func _process(_delta):
 
@@ -13,7 +18,37 @@ func _process(_delta):
 	update_orientationsword(anglesword)
 
 func update_orientationsword(anglesword):
-
+	var directionattack = {
+		0: "left_attack",
+		1: "left_attack",
+		2: "left_attack",
+		3: "left_attack",
+		4: "left_attack",
+		5: "left_attack",
+		6: "left_attack",
+		7: "top_attack",
+		8: "top_attack",
+		9: "top_attack",
+		10: "top_attack",
+		11: "top_attack",
+		12: "top_attack",
+		13: "right_attack",
+		14: "right_attack",
+		15: "right_attack",
+		16: "right_attack",
+		17: "attack",
+		18: "attack",
+		19: "attack",
+		20: "attack",
+		21: "attack",
+		22: "attack",
+		23: "attack",
+		24: "attack",
+		25: "attack",
+		26: "attack",
+		27: "attack"
+	}
+	#0 - left 1 - attack 2 - top 3 - left 
 	var directionssword = {
 		0: "left",
 		1: "left_top",
@@ -46,5 +81,7 @@ func update_orientationsword(anglesword):
 	} 
 	
 	var directionsword_coefficient: int = round((anglesword * 1 + 180) / 13.33)
+	var directionattack_coefficient: int = round((anglesword * 1 + 180) / 13.33)
 
-	animationsword.play("sword_" + directionssword[directionsword_coefficient])
+	directions = directionssword[directionsword_coefficient]
+	directionsattacks = directionattack[directionattack_coefficient]

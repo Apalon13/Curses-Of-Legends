@@ -13,9 +13,6 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-108, -191, -280, -190,
 
 [node name="Knight" parent="." instance=ExtResource("1_krjb6")]
 
-[node name="Sword" parent="Knight" instance=ExtResource("2_jvb73")]
-position = Vector2(-2, 8)
-
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -13.0
 offset_top = 43.0
