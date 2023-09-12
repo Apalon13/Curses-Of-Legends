@@ -7,20 +7,20 @@ extends CharacterBody2D
 @export var navigation_agent: NavigationAgent2D
 
 func _ready():
-	navigation_agent.path_desired_distance = 4.0
-	navigation_agent.target_desired_distance = 4.0
+	navigation_agent.path_desired_distance = 30
+	navigation_agent.target_desired_distance = 30
 	
 	call_deferred("actor_setup")
 	
 func actor_setup():
 	await get_tree().physics_frame
 	
-	set_movement_target(movement_target.position)
-	
 func set_movement_target(target: Vector2):
 	navigation_agent.target_position = target
 	
 func _physics_process(delta):
+	set_movement_target(movement_target.position)
+	
 	if navigation_agent.is_navigation_finished():
 		return
 		
