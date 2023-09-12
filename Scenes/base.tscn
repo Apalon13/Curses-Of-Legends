@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cts6dpospwh4j"]
+[gd_scene load_steps=5 format=3 uid="uid://cts6dpospwh4j"]
 
 [ext_resource type="PackedScene" uid="uid://c6q27rgy1jfgn" path="res://Knight/knight.tscn" id="1_krjb6"]
 [ext_resource type="PackedScene" uid="uid://cn5bcopxly73q" path="res://Sword/Sword.tscn" id="2_jvb73"]
+[ext_resource type="PackedScene" uid="uid://cbra5w7050e3p" path="res://Slime/Slime.tscn" id="3_vml8q"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_236mb"]
+vertices = PackedVector2Array(18, -184, 138, -153, 278, -108, 334, 50, 264, 311, -61, 330, -309, 284, -455, 30, -280, -190, -108, -191)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-108, -191, -280, -190, -455, 30, -309, 284, -61, 330, 264, 311, 334, 50, 278, -108, 138, -153, 18, -184)])
 
 [node name="base" type="Node2D"]
 
@@ -57,3 +63,11 @@ offset_left = -87.0
 offset_top = -3.0
 offset_right = -70.0
 offset_bottom = 2.0
+
+[node name="Slime" parent="." node_paths=PackedStringArray("movement_target") instance=ExtResource("3_vml8q")]
+position = Vector2(110, -26)
+movement_target = NodePath("../Knight")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(83, -46)
+navigation_polygon = SubResource("NavigationPolygon_236mb")
