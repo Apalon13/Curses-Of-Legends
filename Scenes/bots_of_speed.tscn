@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://m7s1ohxqa6s3"]
+
+[ext_resource type="Script" path="res://Artefacts/bots of speed.gd" id="1_f5eoq"]
+[ext_resource type="Texture2D" uid="uid://cwqlwb7y7o6ob" path="res://icon.svg" id="2_hddg7"]
+[ext_resource type="Script" path="res://Scripts/pickup.gd" id="3_k0xme"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vkkn"]
+
+[node name="Bots of speed" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_f5eoq")
+MOVEMENT_SPEED = 50.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -5.96046e-08)
+scale = Vector2(0.242188, 0.234375)
+texture = ExtResource("2_hddg7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5vkkn")
+
+[node name="Zone" type="Node2D" parent="."]
+
+[node name="PickUp" type="Area2D" parent="Zone"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("3_k0xme")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Zone/PickUp"]
+polygon = PackedVector2Array(-23, 0, -18, 17, 0, 22, 19, 16, 23, 0, 18, -16, 0, -24, -17, -17)

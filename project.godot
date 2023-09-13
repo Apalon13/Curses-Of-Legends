@@ -356,6 +356,8 @@ ui_attack={
 2d_render/layer_1="Player"
 2d_render/layer_2="NPC"
 2d_render/layer_3="Hitbox"
+2d_render/layer_4="Enemy"
+2d_render/layer_5="Artefacts"
 
 [rendering]
 
