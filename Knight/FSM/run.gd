@@ -12,17 +12,17 @@ func inner_physics_process(_delta):
 
 	$"../../DebugData/Debug/Direction".set_text(str(direction))
 	if direction:
-		knight.velocity.x = direction * knight.MOVEMENT_SPEED
+		knight.velocity.x = direction * knight.MOVEMENT_SPEED_CHARACTER
 	else:
-		knight.velocity.x = move_toward(knight.velocity.x, 0, knight.MOVEMENT_SPEED/4)
+		knight.velocity.x = move_toward(knight.velocity.x, 0, knight.MOVEMENT_SPEED_CHARACTER/4)
 
 	var direction2 = Input.get_axis("ui_d", "ui_u")
 
 	$"../../DebugData/Debug/Direction2".set_text(str(direction2))
 	if direction2:
-		knight.velocity.y = -1*(direction2 * knight.MOVEMENT_SPEED)
+		knight.velocity.y = -1*(direction2 * knight.MOVEMENT_SPEED_CHARACTER)
 	else:
-		knight.velocity.y = move_toward(knight.velocity.y, 0, knight.MOVEMENT_SPEED/4)
+		knight.velocity.y = move_toward(knight.velocity.y, 0, knight.MOVEMENT_SPEED_CHARACTER/4)
 
 	$"../../DebugData/Debug/Speed".set_text(str(knight.velocity.x))
 	knight.move_and_slide()

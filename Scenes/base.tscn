@@ -71,3 +71,4 @@ navigation_polygon = SubResource("NavigationPolygon_236mb")
 
 [node name="Bots of speed" parent="." instance=ExtResource("3_in0tw")]
 position = Vector2(-112, 63)
+MOVEMENT_SPEED = 0.0

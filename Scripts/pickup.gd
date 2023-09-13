@@ -10,7 +10,4 @@ func _ready():
 func _process(_delta):
 	pass
 
-func pickup():
-	owner.queue_free()
-	print(owner.name)
-	
+

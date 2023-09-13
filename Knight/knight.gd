@@ -1,10 +1,10 @@
 class_name Knight
 extends CharacterBody2D
 
-const MOVEMENT_SPEED = 400.0
-const HP = 100.0
-const ATK = 10.0
-const ATTACK_SPEED = 1.0
+var MOVEMENT_SPEED_CHARACTER = 400.0
+var HP = 100.0
+var ATK = 10.0
+var ATTACK_SPEED = 1.0
 
 @onready var direction = "right"
 @onready var animation = $AnimatedSprite2D2
@@ -37,8 +37,12 @@ func update_orientation(angle):
 	var direction_coefficient: int = round((angle * -1 + 180) / 45)
 	
 	direction = directions[direction_coefficient]
+	
+func speed(speed):
+	MOVEMENT_SPEED_CHARACTER += speed
 
 
 func _on_pick_up_area_entered(area):
-	if area.has_method("pickup"):
-		area.pickup()
+	if area.owner.has_method("pickup"):
+		area.owner.pickup()
+		print(str(MOVEMENT_SPEED_CHARACTER))
