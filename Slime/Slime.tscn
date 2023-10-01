@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cbra5w7050e3p"]
+[gd_scene load_steps=13 format=3 uid="uid://cbra5w7050e3p"]
 
 [ext_resource type="Texture2D" uid="uid://feitblvv6xeu" path="res://Slime/map.png" id="1_h0g58"]
 [ext_resource type="Script" path="res://Slime/Slime.gd" id="1_q4ved"]
@@ -67,7 +67,12 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t1qsr"]
+height = 33.9958
+
 [node name="Slime" type="CharacterBody2D" node_paths=PackedStringArray("navigation_agent")]
+collision_layer = 8
+collision_mask = 0
 script = ExtResource("1_q4ved")
 navigation_agent = NodePath("NavigationAgent2D")
 
@@ -76,3 +81,8 @@ sprite_frames = SubResource("SpriteFrames_g8rdf")
 animation = &"run"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 4)
+rotation = -1.55509
+shape = SubResource("CapsuleShape2D_t1qsr")

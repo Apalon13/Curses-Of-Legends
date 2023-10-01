@@ -1050,7 +1050,9 @@ sprite_frames = SubResource("SpriteFrames_5d1gh")
 animation = &"idle_down"
 speed_scale = 2.0
 
-[node name="DebugData" type="Control" parent="."]
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="DebugData" type="Control" parent="Camera2D"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = -63.0
@@ -1058,35 +1060,32 @@ offset_top = 31.0
 offset_right = -23.0
 offset_bottom = 71.0
 
-[node name="Debug" type="VBoxContainer" parent="DebugData"]
+[node name="Debug" type="VBoxContainer" parent="Camera2D/DebugData"]
 layout_mode = 0
-offset_left = -95.0
-offset_top = -96.0
-offset_right = -55.0
-offset_bottom = 20.0
+offset_left = -511.0
+offset_top = -354.0
+offset_right = -463.0
+offset_bottom = -238.0
 
-[node name="State" type="Label" parent="DebugData/Debug"]
+[node name="State" type="Label" parent="Camera2D/DebugData/Debug"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 0
 text = "State"
 
-[node name="Direction" type="Label" parent="DebugData/Debug"]
+[node name="Direction" type="Label" parent="Camera2D/DebugData/Debug"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 0
 text = "Dir1"
 
-[node name="Direction2" type="Label" parent="DebugData/Debug"]
+[node name="Direction2" type="Label" parent="Camera2D/DebugData/Debug"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 0
 text = "Dir2"
 
-[node name="Speed" type="Label" parent="DebugData/Debug"]
+[node name="Speed" type="Label" parent="Camera2D/DebugData/Debug"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 0
 text = "Speed"
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(4, 4)
 
 [node name="Zones" type="Node2D" parent="."]
 
@@ -1100,5 +1099,13 @@ monitorable = false
 position = Vector2(9, 1)
 polygon = PackedVector2Array(-12, -36, 24, -11, 21, 9, -25, 15)
 
+[node name="PickUp" type="Area2D" parent="Zones"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Zones/PickUp"]
+polygon = PackedVector2Array(-8, -2, 0, 10, 9, 0, 10, -15, 2, -23, -8, -15)
+
 [connection signal="animation_finished" from="AnimatedSprite2D2" to="FSM/Attack" method="_on_animated_sprite_2d_2_animation_finished"]
 [connection signal="area_entered" from="Zones/Attack1" to="FSM/Attack" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Zones/PickUp" to="." method="_on_pick_up_area_entered"]

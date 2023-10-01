@@ -1,17 +1,22 @@
 class_name Knight
 extends CharacterBody2D
 
-const BASE_SPEED = 300.0
-const HP = 100.0
-const BASE_ATK = 10.0
-const ATTACK_SPEED = 1.0
+var MOVEMENT_SPEED_CHARACTER = 0
+var HP = 0
+var ATK = 0
+var ATTACK_SPEED = 0
 
 @onready var direction = "right"
 @onready var animation = $AnimatedSprite2D2
 @onready var debug = true
 @onready var zones = $Zones/Attack1
+@onready var pickup = $Zones/PickUp
 func _process(_delta):
-
+	
+	MOVEMENT_SPEED_CHARACTER = GlobalStats.MS
+	HP = GlobalStats.HP
+	ATK = GlobalStats.ATK
+	ATTACK_SPEED = GlobalStats.ATK_Speed
 	var character_position = global_position
 	var cursor_position = get_global_mouse_position()
 	var relative_position = cursor_position - character_position
@@ -36,3 +41,9 @@ func update_orientation(angle):
 	var direction_coefficient: int = round((angle * -1 + 180) / 45)
 	
 	direction = directions[direction_coefficient]
+
+
+func _on_pick_up_area_entered(area):
+	if area.owner.has_method("pickup"):
+		area.owner.pickup()
+		print(str(MOVEMENT_SPEED_CHARACTER))

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cts6dpospwh4j"]
 
 [ext_resource type="PackedScene" uid="uid://c6q27rgy1jfgn" path="res://Knight/knight.tscn" id="1_krjb6"]
-[ext_resource type="PackedScene" uid="uid://cn5bcopxly73q" path="res://Sword/Sword.tscn" id="2_jvb73"]
+[ext_resource type="PackedScene" uid="uid://m7s1ohxqa6s3" path="res://Scenes/bots_of_speed.tscn" id="3_in0tw"]
 [ext_resource type="PackedScene" uid="uid://cbra5w7050e3p" path="res://Slime/Slime.tscn" id="3_vml8q"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_236mb"]
@@ -68,3 +68,7 @@ movement_target = NodePath("../Knight")
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 position = Vector2(83, -46)
 navigation_polygon = SubResource("NavigationPolygon_236mb")
+
+[node name="Bots of speed" parent="." instance=ExtResource("3_in0tw")]
+position = Vector2(-112, 63)
+MOVEMENT_SPEED = 0.0

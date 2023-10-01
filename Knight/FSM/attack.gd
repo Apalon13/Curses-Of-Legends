@@ -1,7 +1,7 @@
 extends StatePlayer
 
 func enter(_msg: Dictionary={}):
-	$"../../DebugData/Debug/State".set_text(name)
+	$"../../Camera2D/DebugData/Debug/State".set_text(name)
 
 func inner_physics_process(_delta):
 	
@@ -39,17 +39,19 @@ func inner_physics_process(_delta):
 		knight.zones.set_rotation(-123)
 	
 	if Input.is_action_pressed("ui_l"):
-		knight.velocity.x = -1 * knight.BASE_SPEED
+		knight.velocity.x = -1 * knight.MOVEMENT_SPEED_CHARACTER
 	if Input.is_action_pressed("ui_r"):
-		knight.velocity.x = 1 * knight.BASE_SPEED
+		knight.velocity.x = 1 * knight.MOVEMENT_SPEED_CHARACTER
 	if Input.is_action_pressed("ui_d"):
-		knight.velocity.y = 1 * knight.BASE_SPEED
+		knight.velocity.y = 1 * knight.MOVEMENT_SPEED_CHARACTER
 	if Input.is_action_pressed("ui_u"):
-		knight.velocity.y = -1 * knight.BASE_SPEED
+		knight.velocity.y = -1 * knight.MOVEMENT_SPEED_CHARACTER
 	
-	knight.velocity.x = move_toward(knight.velocity.x, 0, knight.BASE_SPEED/10)
-	knight.velocity.y = move_toward(knight.velocity.y, 0, knight.BASE_SPEED/10)
-	$"../../DebugData/Debug/Speed".set_text(str(knight.velocity.x))
+	knight.velocity.x = move_toward(knight.velocity.x, 0, knight.MOVEMENT_SPEED_CHARACTER/10)
+	knight.velocity.y = move_toward(knight.velocity.y, 0, knight.MOVEMENT_SPEED_CHARACTER/10)
+	
+	$"../../Camera2D/DebugData/Debug/Speed".set_text(str(knight.velocity.x))
+	
 	knight.move_and_slide()
 	knight.animation.play("attack_" + knight.direction) 
 	
