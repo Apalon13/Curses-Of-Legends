@@ -1,7 +1,7 @@
 extends StatePlayer
 
 func enter(_msg: Dictionary={}):
-	$"../../DebugData/Debug/State".set_text(name)
+	$"../../Camera2D/DebugData/Debug/State".set_text(name)
 
 func inner_physics_process(_delta):
 	
@@ -50,7 +50,7 @@ func inner_physics_process(_delta):
 	knight.velocity.x = move_toward(knight.velocity.x, 0, knight.MOVEMENT_SPEED_CHARACTER/10)
 	knight.velocity.y = move_toward(knight.velocity.y, 0, knight.MOVEMENT_SPEED_CHARACTER/10)
 	
-	$"../../DebugData/Debug/Speed".set_text(str(knight.velocity.x))
+	$"../../Camera2D/DebugData/Debug/Speed".set_text(str(knight.velocity.x))
 	
 	knight.move_and_slide()
 	knight.animation.play("attack_" + knight.direction) 

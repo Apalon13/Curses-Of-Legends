@@ -2,7 +2,7 @@ extends StatePlayer
 
 func enter(_msg: Dictionary={}):
 	knight.velocity = Vector2.ZERO
-	$"../../DebugData/Debug/State".set_text(name)
+	$"../../Camera2D/DebugData/Debug/State".set_text(name)
 	
 
 func inner_physics_process(_delta):
@@ -21,11 +21,11 @@ func debug():
 	
 	if knight.debug == false:
 		$"../../DebugData/Debug/State".set_visible(false)
-		$"../../DebugData/Debug/Direction".set_visible(false)
-		$"../../DebugData/Debug/Direction2".set_visible(false)
-		$"../../DebugData/Debug/Speed".set_visible(false)
+		$"../../Camera2D/DebugData/Debug/Direction".set_visible(false)
+		$"../../Camera2D/DebugData/Debug/Direction2".set_visible(false)
+		$"../../Camera2D/DebugData/Debug/Speed".set_visible(false)
 	else:
-		$"../../DebugData/Debug/State".set_visible(true)
-		$"../../DebugData/Debug/Direction".set_visible(true)
-		$"../../DebugData/Debug/Direction2".set_visible(true)
-		$"../../DebugData/Debug/Speed".set_visible(true)
+		$"../../Camera2D/DebugData/Debug/State".set_visible(true)
+		$"../../Camera2D/DebugData/Debug/Direction".set_visible(true)
+		$"../../Camera2D/DebugData/Debug/Direction2".set_visible(true)
+		$"../../Camera2D/DebugData/Debug/Speed".set_visible(true)

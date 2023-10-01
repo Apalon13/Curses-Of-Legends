@@ -1,8 +1,8 @@
+class_name Bots_of_speed
 extends Item 
 
 func pickup():
-	MOVEMENT_SPEED = 500000
+	MOVEMENT_SPEED = 100
 	print(name)
-#	K.MOVEMENT_SPEED_CHARACTER = K.MOVEMENT_SPEED_CHARACTER + MOVEMENT_SPEED
-	K.speed(MOVEMENT_SPEED)
+	GlobalStats.MS += MOVEMENT_SPEED
 	$".".queue_free()
