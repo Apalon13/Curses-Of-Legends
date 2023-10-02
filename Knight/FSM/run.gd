@@ -14,7 +14,7 @@ func inner_physics_process(_delta):
 	if direction:
 		knight.velocity.x = direction * knight.MOVEMENT_SPEED_CHARACTER
 	else:
-		knight.velocity.x = move_toward(knight.velocity.x, 0, knight.MOVEMENT_SPEED_CHARACTER/4)
+		knight.velocity.x = move_toward(knight.velocity.x, 0, knight.MOVEMENT_SPEED_CHARACTER/4.1)
 
 	var direction2 = Input.get_axis("ui_d", "ui_u")
 
@@ -22,7 +22,7 @@ func inner_physics_process(_delta):
 	if direction2:
 		knight.velocity.y = -1*(direction2 * knight.MOVEMENT_SPEED_CHARACTER)
 	else:
-		knight.velocity.y = move_toward(knight.velocity.y, 0, knight.MOVEMENT_SPEED_CHARACTER/4)
+		knight.velocity.y = move_toward(knight.velocity.y, 0, knight.MOVEMENT_SPEED_CHARACTER/4.1)
 
 	$"../../Camera2D/DebugData/Debug/Speed".set_text(str(knight.velocity.x))
 	knight.move_and_slide()

@@ -47,8 +47,8 @@ func inner_physics_process(_delta):
 	if Input.is_action_pressed("ui_u"):
 		knight.velocity.y = -1 * knight.MOVEMENT_SPEED_CHARACTER
 	
-	knight.velocity.x = move_toward(knight.velocity.x, 0, knight.MOVEMENT_SPEED_CHARACTER/10)
-	knight.velocity.y = move_toward(knight.velocity.y, 0, knight.MOVEMENT_SPEED_CHARACTER/10)
+	knight.velocity.x = move_toward(knight.velocity.x, 0, knight.MOVEMENT_SPEED_CHARACTER/10.1)
+	knight.velocity.y = move_toward(knight.velocity.y, 0, knight.MOVEMENT_SPEED_CHARACTER/10.1)
 	
 	$"../../Camera2D/DebugData/Debug/Speed".set_text(str(knight.velocity.x))
 	

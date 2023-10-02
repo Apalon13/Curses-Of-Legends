@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://fq2085qdtppe"]
+
+[ext_resource type="Script" path="res://Scripts/Henova.gd" id="1_o4mik"]
+[ext_resource type="Texture2D" uid="uid://bk6aeuxhaluyt" path="res://Textures/chrome_OHpN4g0PCh.png" id="2_6i6j3"]
+[ext_resource type="PackedScene" uid="uid://de73tip603oop" path="res://Scenes/actionable.tscn" id="3_e78dk"]
+[ext_resource type="Resource" uid="uid://3x1nqgefp8dk" path="res://Dialogue/Henowa.dialogue" id="4_oeo6m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onbqq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qfk1o"]
+size = Vector2(32, 30)
+
+[node name="Henova" type="CharacterBody2D"]
+script = ExtResource("1_o4mik")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_onbqq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -1)
+scale = Vector2(0.0807292, 0.0791063)
+texture = ExtResource("2_6i6j3")
+
+[node name="Actionable" parent="." instance=ExtResource("3_e78dk")]
+collision_layer = 2
+collision_mask = 0
+dialogue_resource = ExtResource("4_oeo6m")
+dialogue_start = "update"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actionable"]
+position = Vector2(1, -2)
+shape = SubResource("RectangleShape2D_qfk1o")

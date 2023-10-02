@@ -11,9 +11,14 @@ var ATTACK_SPEED = 0
 @onready var debug = true
 @onready var zones = $Zones/Attack1
 @onready var pickup = $Zones/PickUp
+@onready var actionable_finder: Area2D = $Zones/ActionableFinder
+@onready var labledia = $Dialog
+
 func _process(_delta):
-	
-	MOVEMENT_SPEED_CHARACTER = GlobalStats.MS
+	if GlobalStats.dialoguestatus == true:
+		MOVEMENT_SPEED_CHARACTER = 0
+	else:
+		MOVEMENT_SPEED_CHARACTER = GlobalStats.MS
 	HP = GlobalStats.HP
 	ATK = GlobalStats.ATK
 	ATTACK_SPEED = GlobalStats.ATK_Speed
@@ -46,4 +51,20 @@ func update_orientation(angle):
 func _on_pick_up_area_entered(area):
 	if area.owner.has_method("pickup"):
 		area.owner.pickup()
-		print(str(MOVEMENT_SPEED_CHARACTER))
+
+
+func _unhandled_input(_event: InputEvent):
+	if Input.is_action_just_pressed("ui_dialog"):
+		var actionables = actionable_finder.get_overlapping_areas()
+		if actionables.size() > 0:
+			labledia.set_visible(false)
+			actionables[0].action()
+			return
+
+
+func _on_actionable_finder_area_entered(_area):
+	labledia.set_visible(true)
+
+
+func _on_actionable_finder_area_exited(_area):
+	labledia.set_visible(false)
