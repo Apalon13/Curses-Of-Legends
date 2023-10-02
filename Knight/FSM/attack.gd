@@ -4,38 +4,34 @@ func enter(_msg: Dictionary={}):
 	$"../../Camera2D/DebugData/Debug/State".set_text(name)
 
 func inner_physics_process(_delta):
+	if knight.animation.get_frame() == 3:
+		knight.zones.set_monitoring(true)
+	elif knight.animation.get_frame() == 3:
+		knight.zones.set_monitoring(false)
 	
 	if knight.direction == "top":
 		knight.zones.set_scale(Vector2(1, 1))
 		knight.zones.set_rotation(80)
-		knight.zones.set_monitoring(true)
 	if knight.direction == "down":
 		knight.zones.set_scale(Vector2(1, 1))
 		knight.zones.set_rotation(-80)
-		knight.zones.set_monitoring(true)
 	if knight.direction == "left":
 		knight.zones.set_scale(Vector2(-1, 1))            
-		knight.zones.set_monitoring(true)
 		knight.zones.set_rotation(0)
 	if knight.direction == "right":
 		knight.zones.set_scale(Vector2(1, 1))
-		knight.zones.set_monitoring(true)
 		knight.zones.set_rotation(0)
 	if knight.direction == "right_down":
 		knight.zones.set_scale(Vector2(1, 1))
-		knight.zones.set_monitoring(true)
 		knight.zones.set_rotation(-43)
 	if knight.direction == "right_top":
 		knight.zones.set_scale(Vector2(1, 1))
-		knight.zones.set_monitoring(true)
 		knight.zones.set_rotation(43)
 	if knight.direction == "left_top":
 		knight.zones.set_scale(Vector2(1, 1))
-		knight.zones.set_monitoring(true)
 		knight.zones.set_rotation(123)
 	if knight.direction == "left_down":
 		knight.zones.set_scale(Vector2(1, 1))
-		knight.zones.set_monitoring(true)
 		knight.zones.set_rotation(-123)
 	
 	if Input.is_action_pressed("ui_l"):

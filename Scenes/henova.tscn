@@ -17,8 +17,8 @@ script = ExtResource("1_o4mik")
 shape = SubResource("RectangleShape2D_onbqq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1, -1)
-scale = Vector2(0.0807292, 0.0791063)
+position = Vector2(1, -2.1875)
+scale = Vector2(0.0807292, 0.0733696)
 texture = ExtResource("2_6i6j3")
 
 [node name="Actionable" parent="." instance=ExtResource("3_e78dk")]
