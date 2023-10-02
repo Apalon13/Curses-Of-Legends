@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://m7s1ohxqa6s3"]
+[gd_scene load_steps=4 format=3 uid="uid://m7s1ohxqa6s3"]
 
 [ext_resource type="Script" path="res://Artefacts/bots of speed.gd" id="1_f5eoq"]
-[ext_resource type="Texture2D" uid="uid://cwqlwb7y7o6ob" path="res://icon.svg" id="2_hddg7"]
-[ext_resource type="Script" path="res://Scripts/pickup.gd" id="3_k0xme"]
+[ext_resource type="Texture2D" uid="uid://d3wekc4qldx6w" path="res://Textures/team-fortress-2-cowboy-boot-dota-2-spur-png-favpng-VXTbrdiq7ZU9Ss5DUcE7FrLxk.jpg" id="2_nqg3k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5vkkn"]
 
@@ -12,9 +11,9 @@ collision_mask = 0
 script = ExtResource("1_f5eoq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -5.96046e-08)
-scale = Vector2(0.242188, 0.234375)
-texture = ExtResource("2_hddg7")
+position = Vector2(-2.38419e-07, 0)
+scale = Vector2(0.0223135, 0.0332031)
+texture = ExtResource("2_nqg3k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_5vkkn")
@@ -24,7 +23,6 @@ shape = SubResource("RectangleShape2D_5vkkn")
 [node name="PickUp" type="Area2D" parent="Zone"]
 collision_layer = 16
 collision_mask = 0
-script = ExtResource("3_k0xme")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Zone/PickUp"]
-polygon = PackedVector2Array(-23, 0, -18, 17, 0, 22, 19, 16, 23, 0, 18, -16, 0, -24, -17, -17)
+polygon = PackedVector2Array(-12, 0, -9, 10, -1, 12, 11, 11, 13, 0, 12, -10, 0, -14, -11, -11)

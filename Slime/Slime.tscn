@@ -1,7 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://cbra5w7050e3p"]
+[gd_scene load_steps=15 format=3 uid="uid://cbra5w7050e3p"]
 
 [ext_resource type="Texture2D" uid="uid://feitblvv6xeu" path="res://Slime/map.png" id="1_h0g58"]
 [ext_resource type="Script" path="res://Slime/Slime.gd" id="1_q4ved"]
+[ext_resource type="Script" path="res://Slime/Dead.gd" id="3_u2kiy"]
+[ext_resource type="PackedScene" uid="uid://dvmagsoi4qvka" path="res://Scenes/Hpbar.tscn" id="4_3dsgn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wlwtp"]
 atlas = ExtResource("1_h0g58")
@@ -86,3 +88,23 @@ animation = &"run"
 position = Vector2(-2, 4)
 rotation = -1.55509
 shape = SubResource("CapsuleShape2D_t1qsr")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -22.0
+offset_top = -31.0
+offset_right = 18.0
+offset_bottom = -8.0
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("3_u2kiy")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-3, 14, 10, 14, 16, 7, 15, 0, 5, -7, -9, -7, -19, -2, -20, 8, -13, 14)
+
+[node name="HpBar" parent="." instance=ExtResource("4_3dsgn")]
+offset_left = -22.0
+offset_top = -16.0
+offset_right = 77.0
+offset_bottom = -5.0

@@ -1,0 +1,19 @@
+~ start
+
+Henowa: Hi
+Henowa: Lol
+
+=> END
+
+~ update
+set dialoguestatus = true
+Henowa: Привет	
+- Привет уебише
+	Henowa: Ну ты пидрила
+- Я твою мать ебал
+		set dialoguestatus = false
+		=> END
+- Хи хи хи
+		Henowa: Ладно
+set dialoguestatus = false
+=> END
