@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://feitblvv6xeu"
-path="res://.godot/imported/map.png-19824c032d8218209433ca4d6849ce08.ctex"
+uid="uid://c3fqegi6ci0jb"
+path="res://.godot/imported/map.png-be1d2bde1a1192fd1ee0457b73f7b883.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Slime/map.png"
-dest_files=["res://.godot/imported/map.png-19824c032d8218209433ca4d6849ce08.ctex"]
+source_file="res://Enemy/Slime_texture/map.png"
+dest_files=["res://.godot/imported/map.png-be1d2bde1a1192fd1ee0457b73f7b883.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

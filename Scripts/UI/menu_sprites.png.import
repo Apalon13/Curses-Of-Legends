@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bq12yd70ro1u1"
-path="res://.godot/imported/Knight_attack_right4.png-813070ed294b1ea5e52e74754c79e9af.ctex"
+uid="uid://ck4ce4pgqydre"
+path="res://.godot/imported/menu_sprites.png-ea26fa75ca1de233a63d886ad4fac501.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Knight/Animation/Knight_attack_right/Knight_attack_right4.png"
-dest_files=["res://.godot/imported/Knight_attack_right4.png-813070ed294b1ea5e52e74754c79e9af.ctex"]
+source_file="res://Scripts/UI/menu_sprites.png"
+dest_files=["res://.godot/imported/menu_sprites.png-ea26fa75ca1de233a63d886ad4fac501.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
