@@ -1,33 +1,43 @@
 extends CharacterBody2D
 
-var speed = 200
+var speed = 50
 var player_chase = false
 var player = null
-var HP = 50
+var HP = 0
+var HP_start = 50
 var player_inattack_zone = false
 var can_take_damage = true
 
 func _ready():
+	HP = HP_start
+	$HpBar.set_visible(false)
 	$HpBar.maxv(HP)
 	$HpBar.set_value(HP)
 
 func enemy():
 	pass
-
+	
 func _physics_process(_delta):
 	deal_with_damage()
 	
+	if HP != HP_start:
+		$HpBar.set_visible(true)
+	else:
+		$HpBar.set_visible(false)
+
 	if player_chase == true:
 		position += (player.position - position)/speed
+		
+		move_and_slide()
 
-		$AnimatedSprite2D.play("slime")
+		$AnimatedSprite2D.play("slime_walk")
 		
 		if (player.position.x - position.x) < 0:
 			$AnimatedSprite2D.flip_h = true
 		else:
 			$AnimatedSprite2D.flip_h = false
 	else:
-		$AnimatedSprite2D.play("slime")
+		$AnimatedSprite2D.play("slime_idle")
 
 func _on_detection_area_body_entered(body):
 	player = body

@@ -7,6 +7,7 @@ var speed = GlobalStats.MS
 var player_alive = true
 var current_dir = "none"
 var attack_ip = false
+var regen = false
 @onready var actionable_finder: Area2D = $ActionableFinder
 @onready var labledia = $Dialog
 
@@ -15,19 +16,34 @@ func _ready():
 	$AnimatedSprite2D.play("front_idle")
 	$HpBar.maxv(HP)
 	$HpBar.set_value(HP)
+	$HpBar.set_visible(false)
 	
 func _physics_process(delta):
+	if GlobalStats.dialoguestatus == true and current_dir == "right":
+		$AnimatedSprite2D.flip_h = false
+		$AnimatedSprite2D.play("front_idle")
+	if GlobalStats.dialoguestatus == true and current_dir == "up":
+		$AnimatedSprite2D.play("side_idle")
+	if GlobalStats.dialoguestatus == true and current_dir == "down":
+		$AnimatedSprite2D.play("back_idle")
+	if GlobalStats.dialoguestatus == true and current_dir == "left":
+		$AnimatedSprite2D.flip_h = true
+		$AnimatedSprite2D.play("front_idle")
+	
 	if GlobalStats.dialoguestatus == true:
 		speed = 0
 	else:
 		speed = GlobalStats.MS
 	
+	current_camera()
 	player_movement(delta)
 	enemy_attack()
 	attack()
+	menu()
 	
 	if HP <= 0:
 		player_alive = false
+		GlobalStats.game_first_loadin = true
 		self.queue_free()
 		get_tree().change_scene_to_file("res://Scenes/Menu.tscn")
 
@@ -73,27 +89,27 @@ func play_anim(movement):
 	
 	if dir == "right":
 		anim.flip_h = false 
-		if movement == 1:
+		if movement == 1 and attack_ip == false:
 			anim.play("front_walk")
 		elif movement == 0:
 			if attack_ip == false:
 				anim.play("front_idle")
 	if dir == "left":
 		anim.flip_h = true
-		if movement == 1:
+		if movement == 1 and attack_ip == false:
 			anim.play("front_walk")
 		elif movement == 0:
 			if attack_ip == false:
 				anim.play("front_idle")
 
 	if dir == "down":
-		if movement == 1:
+		if movement == 1 and attack_ip == false:
 			anim.play("side_walk")
 		elif movement == 0:
 			if attack_ip == false:
 				anim.play("side_idle")
 	if dir == "up":
-		if movement == 1:
+		if movement == 1 and attack_ip == false:
 			anim.play("back_walk")
 		elif movement == 0:
 			if attack_ip == false:
@@ -101,6 +117,10 @@ func play_anim(movement):
 
 func player():
 	pass
+	
+func menu():
+	if Input.is_action_just_pressed("ui_menu1"):
+		get_tree().change_scene_to_file("res://Scenes/Menu.tscn")
 
 func _on_player_hitbox_body_entered(body):
 	if body.has_method("enemy"):
@@ -113,10 +133,13 @@ func _on_player_hitbox_body_exited(body):
 func enemy_attack():
 	if enemy_inattack_range and enemy_attack_cooldown == true:
 		HP = HP - 20
+		if HP != GlobalStats.HP:
+			$HpBar.set_visible(true)
+		else:
+			$HpBar.set_visible(false)
 		$HpBar.set_value(HP)
 		enemy_attack_cooldown = false
 		$attack_cooldown.start()
-		print(HP)
 	
 func _on_attack_cooldown_timeout():
 	enemy_attack_cooldown = true
@@ -156,3 +179,17 @@ func _on_actionable_finder_area_exited(_area):
 func _on_pick_up_area_entered(area):
 	if area.owner.has_method("pickup"):
 		area.owner.pickup()
+
+func current_camera():
+	if GlobalStats.current_scene == "base_hub":
+		$hub.enabled = true
+		$cliff_camera.enabled = false
+		$Camera2D.enabled = false
+	elif GlobalStats.current_scene == "cliff_side":
+		$hub.enabled = false
+		$cliff_camera.enabled = true
+		$Camera2D.enabled = false
+	elif GlobalStats.current_scene == "dungeon_scene":
+		$Camera2D.enabled = true
+		$hub.enabled = false
+		$cliff_camera.enabled = false

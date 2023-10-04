@@ -415,7 +415,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qe8lj"]
-radius = 8.0
+radius = 5.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3f7sh"]
 
@@ -424,21 +424,28 @@ radius = 8.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_e7qph"]
 
 [node name="player" type="CharacterBody2D"]
-collision_layer = 4
-collision_mask = 0
+y_sort_enabled = true
+collision_layer = 2
 script = ExtResource("1_fl62p")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_riacg")
 animation = &"front_attack"
+frame = 3
+frame_progress = 1.0
 speed_scale = 1.5
+offset = Vector2(0, -15)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 8)
+y_sort_enabled = true
+position = Vector2(1, 0)
 shape = SubResource("CircleShape2D_qe8lj")
 
 [node name="player_hitbox" type="Area2D" parent="."]
-collision_mask = 3
+position = Vector2(1, -10)
+collision_layer = 2
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_hitbox"]
 position = Vector2(1, 8)
@@ -450,19 +457,20 @@ wait_time = 0.5
 [node name="attack_cooldown" type="Timer" parent="."]
 
 [node name="HpBar" parent="." instance=ExtResource("3_o6rw8")]
-offset_left = -20.0
-offset_top = -8.0
-offset_right = 20.0
-offset_bottom = 32.0
+offset_left = -21.0
+offset_top = -23.0
+offset_right = 19.0
+offset_bottom = 17.0
 
 [node name="Dialog" type="Label" parent="."]
-offset_left = -38.0
-offset_top = -35.0
-offset_right = 39.0
-offset_bottom = -9.0
+offset_left = -37.0
+offset_top = -44.0
+offset_right = 40.0
+offset_bottom = -18.0
 text = "Говорить"
 
 [node name="ActionableFinder" type="Area2D" parent="."]
+position = Vector2(1, -10)
 collision_layer = 0
 collision_mask = 8
 
@@ -470,16 +478,36 @@ collision_mask = 8
 position = Vector2(1, 8)
 shape = SubResource("CircleShape2D_jca5j")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(4, 4)
-
 [node name="PickUp" type="Area2D" parent="."]
+position = Vector2(1, -10)
 collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickUp"]
-position = Vector2(1, 8)
+position = Vector2(0, 9)
 shape = SubResource("CircleShape2D_e7qph")
+
+[node name="hub" type="Camera2D" parent="."]
+position = Vector2(2, -1)
+enabled = false
+zoom = Vector2(4, 4)
+limit_left = 0
+limit_top = 0
+limit_right = 1683
+limit_bottom = 1645
+limit_smoothed = true
+rotation_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="cliff_camera" type="Camera2D" parent="."]
+enabled = false
+zoom = Vector2(4, 4)
+limit_left = -87
+limit_top = 1
+limit_right = 440
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
