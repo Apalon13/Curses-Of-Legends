@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://coarjr52valor"
-path="res://.godot/imported/sword_left_top6.png-e0807177e0c110ad7962f7fcc6802b40.ctex"
+path="res://godot/imported/sword_left_top6.png-e0807177e0c110ad7962f7fcc6802b40.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://Sword/Animetion/sword_left_top6.png"
-dest_files=["res://.godot/imported/sword_left_top6.png-e0807177e0c110ad7962f7fcc6802b40.ctex"]
+dest_files=["res://godot/imported/sword_left_top6.png-e0807177e0c110ad7962f7fcc6802b40.ctex"]
 
 [params]
 

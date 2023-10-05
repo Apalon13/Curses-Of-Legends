@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cikb733oe0otk"
-path="res://.godot/imported/sword_top_attack3.png-f95d7ba29c9519cf2266bfc97b7405c9.ctex"
+path="res://godot/imported/sword_top_attack3.png-f95d7ba29c9519cf2266bfc97b7405c9.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://Sword/Animetion/sword_top_attack3.png"
-dest_files=["res://.godot/imported/sword_top_attack3.png-f95d7ba29c9519cf2266bfc97b7405c9.ctex"]
+dest_files=["res://godot/imported/sword_top_attack3.png-f95d7ba29c9519cf2266bfc97b7405c9.ctex"]
 
 [params]
 

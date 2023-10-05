@@ -13,7 +13,7 @@ var regen = false
 var sl = false
 
 func _ready():
-	$coming/CollisionShape2D/AudioStreamPlayer2D.set_volume_db(-80)
+	$coming/CollisionShape2D/AudioStreamPlayer.set_volume_db(-80)
 	labledia.set_visible(false)
 	$AnimatedSprite2D.play("front_idle")
 	$HpBar.maxv(HP)
@@ -24,10 +24,10 @@ func _physics_process(delta):
 	GlobalStats.posx = position.x
 	GlobalStats.posy = position.y
 	if sl == true:
-		$coming/CollisionShape2D/AudioStreamPlayer2D.set_volume_db(0)
+		$coming/CollisionShape2D/AudioStreamPlayer.set_volume_db(0)
 		$coming.set_monitorable(true)
 	elif sl == false:
-		$coming/CollisionShape2D/AudioStreamPlayer2D.set_volume_db(-80)
+		$coming/CollisionShape2D/AudioStreamPlayer.set_volume_db(-80)
 		$coming.set_monitorable(false)
 	
 	if GlobalStats.dialoguestatus == true and current_dir == "right":
@@ -50,7 +50,6 @@ func _physics_process(delta):
 	player_movement(delta)
 	enemy_attack()
 	attack()
-	menu()
 	
 	if HP <= 0:
 		player_alive = false
@@ -134,10 +133,6 @@ func play_anim(movement):
 
 func player():
 	pass
-	
-func menu():
-	if Input.is_action_just_pressed("ui_menu1"):
-		get_tree().change_scene_to_file("res://Scenes/Menu.tscn")
 
 func _on_player_hitbox_body_entered(body):
 	if body.has_method("enemy"):
@@ -198,15 +193,15 @@ func _on_pick_up_area_entered(area):
 		area.owner.pickup()
 
 func current_camera():
-	if GlobalStats.current_scene == "base_hub":
+	if GlobalStats.current_scene2 == "base_hub" or GlobalStats.current_scene == "base_hub":
 		$hub.enabled = true
 		$cliff_camera.enabled = false
 		$Camera2D.enabled = false
-	elif GlobalStats.current_scene == "cliff_side":
+	elif GlobalStats.current_scene2 == "cliff_side" or GlobalStats.current_scene == "cliff_side":
 		$hub.enabled = false
 		$cliff_camera.enabled = true
 		$Camera2D.enabled = false
-	elif GlobalStats.current_scene == "dungeon_scene":
+	elif GlobalStats.current_scene2 == "dungeon_scene" or GlobalStats.current_scene == "dungeon_scene":
 		$Camera2D.enabled = true
 		$hub.enabled = false
 		$cliff_camera.enabled = false

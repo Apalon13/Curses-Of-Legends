@@ -1,0 +1,5 @@
+res://Player/Player.tscn
+res://Scripts/GlobalStats.gd
+res://Scripts/saveGame.gd
+res://Scenes/save_game.tscn
+res://Scenes/Menu.tscn

@@ -27,4 +27,3 @@ offset_right = 143.0
 offset_bottom = 253.0
 
 [connection signal="body_entered" from="Dungeon_scene" to="." method="_on_dungeon_scene_body_entered"]
-[connection signal="body_exited" from="Dungeon_scene" to="." method="_on_dungeon_scene_body_exited"]

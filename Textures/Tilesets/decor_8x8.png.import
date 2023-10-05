@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b6lfhtca35m8o"
-path="res://.godot/imported/decor_8x8.png-2fb6ec8f72a534a86a4fe92e5c373df5.ctex"
+path="res://godot/imported/decor_8x8.png-2fb6ec8f72a534a86a4fe92e5c373df5.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://Textures/Tilesets/decor_8x8.png"
-dest_files=["res://.godot/imported/decor_8x8.png-2fb6ec8f72a534a86a4fe92e5c373df5.ctex"]
+dest_files=["res://godot/imported/decor_8x8.png-2fb6ec8f72a534a86a4fe92e5c373df5.ctex"]
 
 [params]
 

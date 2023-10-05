@@ -1,10 +1,12 @@
-[gd_scene load_steps=63 format=3 uid="uid://uugn2jiybvd0"]
+[gd_scene load_steps=65 format=3 uid="uid://uugn2jiybvd0"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_fl62p"]
 [ext_resource type="Texture2D" uid="uid://ch0w6ffedw5p0" path="res://Player/Player_texture/player.png" id="1_rwph5"]
 [ext_resource type="PackedScene" uid="uid://dvmagsoi4qvka" path="res://Scenes/Hpbar.tscn" id="3_o6rw8"]
-[ext_resource type="AudioStream" uid="uid://dlavnhdaklv67" path="res://Audio/hubalter.wav" id="4_ch5oe"]
 [ext_resource type="Script" path="res://Player/coming.gd" id="4_t77d7"]
+[ext_resource type="AudioStream" uid="uid://dvtdwnxy4tlnt" path="res://Audio/byistraya-hodba-po-graviyu-26129.wav" id="5_dj7nq"]
+[ext_resource type="PackedScene" uid="uid://clnx1fcicu3di" path="res://Scenes/menumain.tscn" id="6_wh040"]
+[ext_resource type="Script" path="res://Player/Manager.gd" id="7_n0pbx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rfw1u"]
 atlas = ExtResource("1_rwph5")
@@ -513,6 +515,7 @@ limit_top = 1
 limit_right = 440
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
 
 [node name="coming" type="Area2D" parent="."]
 collision_layer = 64
@@ -525,11 +528,19 @@ script = ExtResource("4_t77d7")
 modulate = Color(1, 0.670588, 1, 1)
 shape = SubResource("CircleShape2D_bds24")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="coming/CollisionShape2D"]
-stream = ExtResource("4_ch5oe")
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="coming/CollisionShape2D"]
+stream = ExtResource("5_dj7nq")
 volume_db = -80.0
 autoplay = true
-max_distance = 100.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Menumain" parent="CanvasLayer" instance=ExtResource("6_wh040")]
+process_mode = 2
+
+[node name="Manager" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("7_n0pbx")
 
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
@@ -538,3 +549,9 @@ max_distance = 100.0
 [connection signal="area_entered" from="ActionableFinder" to="." method="_on_actionable_finder_area_entered"]
 [connection signal="area_exited" from="ActionableFinder" to="." method="_on_actionable_finder_area_exited"]
 [connection signal="area_entered" from="PickUp" to="." method="_on_pick_up_area_entered"]
+[connection signal="pressed" from="CanvasLayer/Menumain/Panel/VBoxContainer/Resume" to="Manager" method="_on_resume_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menumain/Panel/VBoxContainer/Save" to="Manager" method="_on_save_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menumain/Panel/VBoxContainer/Load" to="Manager" method="_on_load_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menumain/Panel/VBoxContainer/Menu" to="Manager" method="_on_menu_pressed"]
+
+[editable path="CanvasLayer/Menumain"]

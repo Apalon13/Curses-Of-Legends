@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cv2dinqhjhsxs"
-path="res://.godot/imported/carpet.png-5cd23473b9240ce453f1a8f3ecd8f290.ctex"
+path="res://godot/imported/carpet.png-5cd23473b9240ce453f1a8f3ecd8f290.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://Textures/Tilesets/floors/carpet.png"
-dest_files=["res://.godot/imported/carpet.png-5cd23473b9240ce453f1a8f3ecd8f290.ctex"]
+dest_files=["res://godot/imported/carpet.png-5cd23473b9240ce453f1a8f3ecd8f290.ctex"]
 
 [params]
 

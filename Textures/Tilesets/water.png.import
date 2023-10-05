@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://0brfkjumtfrh"
-path="res://.godot/imported/water.png-4156cfea5f1980ec23d5bdf681e82553.ctex"
+path="res://godot/imported/water.png-4156cfea5f1980ec23d5bdf681e82553.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://Textures/Tilesets/water.png"
-dest_files=["res://.godot/imported/water.png-4156cfea5f1980ec23d5bdf681e82553.ctex"]
+dest_files=["res://godot/imported/water.png-4156cfea5f1980ec23d5bdf681e82553.ctex"]
 
 [params]
 

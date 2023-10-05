@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c3fqegi6ci0jb"
-path="res://.godot/imported/map.png-be1d2bde1a1192fd1ee0457b73f7b883.ctex"
+path="res://godot/imported/map.png-be1d2bde1a1192fd1ee0457b73f7b883.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://Enemy/Slime_texture/map.png"
-dest_files=["res://.godot/imported/map.png-be1d2bde1a1192fd1ee0457b73f7b883.ctex"]
+dest_files=["res://godot/imported/map.png-be1d2bde1a1192fd1ee0457b73f7b883.ctex"]
 
 [params]
 

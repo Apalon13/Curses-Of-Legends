@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 50
+var speed = 100
 var player_chase = false
 var player = null
 var playeraudio = null
@@ -27,7 +27,6 @@ func _physics_process(_delta):
 			$AnimatedSprite2D.flip_h = false
 			$detection_area.set_scale(Vector2(1, 1))
 			
-		
 	deal_with_damage()
 	if HP != HP_start:
 		$HpBar.set_visible(true)

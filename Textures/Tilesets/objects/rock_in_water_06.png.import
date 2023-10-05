@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b0xvygktgbq70"
-path="res://.godot/imported/rock_in_water_06.png-fe7db1ed6190fecd19f5327caaed4cac.ctex"
+path="res://godot/imported/rock_in_water_06.png-fe7db1ed6190fecd19f5327caaed4cac.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://Textures/Tilesets/objects/rock_in_water_06.png"
-dest_files=["res://.godot/imported/rock_in_water_06.png-fe7db1ed6190fecd19f5327caaed4cac.ctex"]
+dest_files=["res://godot/imported/rock_in_water_06.png-fe7db1ed6190fecd19f5327caaed4cac.ctex"]
 
 [params]
 
