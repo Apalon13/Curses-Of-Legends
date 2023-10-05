@@ -72,7 +72,6 @@ shape = SubResource("RectangleShape2D_4fg3c")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_ybppp")
-autoplay = true
 
 [node name="enemy" parent="." instance=ExtResource("5_wif8v")]
 position = Vector2(306, 799)

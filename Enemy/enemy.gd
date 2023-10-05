@@ -3,6 +3,7 @@ extends CharacterBody2D
 var speed = 50
 var player_chase = false
 var player = null
+var playeraudio = null
 var HP = 0
 var HP_start = 50
 var player_inattack_zone = false
@@ -18,8 +19,16 @@ func enemy():
 	pass
 	
 func _physics_process(_delta):
+	if GlobalStats.silence == true:
+		if (GlobalStats.posx - position.x) < 0:
+			$AnimatedSprite2D.flip_h = true
+			$detection_area.set_scale(Vector2(-1, -1))
+		else:
+			$AnimatedSprite2D.flip_h = false
+			$detection_area.set_scale(Vector2(1, 1))
+			
+		
 	deal_with_damage()
-	
 	if HP != HP_start:
 		$HpBar.set_visible(true)
 	else:
@@ -27,15 +36,14 @@ func _physics_process(_delta):
 
 	if player_chase == true:
 		position += (player.position - position)/speed
-		
 		move_and_slide()
-
 		$AnimatedSprite2D.play("slime_walk")
-		
 		if (player.position.x - position.x) < 0:
 			$AnimatedSprite2D.flip_h = true
+			$detection_area.set_scale(Vector2(-1, -1))
 		else:
 			$AnimatedSprite2D.flip_h = false
+			$detection_area.set_scale(Vector2(1, 1))
 	else:
 		$AnimatedSprite2D.play("slime_idle")
 
@@ -67,3 +75,11 @@ func deal_with_damage():
 		
 func _on_take_damage_cooldown_timeout():
 	can_take_damage = true
+
+func _on_listener_area_entered(area):
+	if area.has_method("player"):
+		GlobalStats.silence = true
+
+func _on_listener_area_exited(area):
+	if area.has_method("player"):
+		GlobalStats.silence = false

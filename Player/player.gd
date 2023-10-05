@@ -10,8 +10,10 @@ var attack_ip = false
 var regen = false
 @onready var actionable_finder: Area2D = $ActionableFinder
 @onready var labledia = $Dialog
+var sl = false
 
 func _ready():
+	$coming/CollisionShape2D/AudioStreamPlayer2D.set_volume_db(-80)
 	labledia.set_visible(false)
 	$AnimatedSprite2D.play("front_idle")
 	$HpBar.maxv(HP)
@@ -19,6 +21,15 @@ func _ready():
 	$HpBar.set_visible(false)
 	
 func _physics_process(delta):
+	GlobalStats.posx = position.x
+	GlobalStats.posy = position.y
+	if sl == true:
+		$coming/CollisionShape2D/AudioStreamPlayer2D.set_volume_db(0)
+		$coming.set_monitorable(true)
+	elif sl == false:
+		$coming/CollisionShape2D/AudioStreamPlayer2D.set_volume_db(-80)
+		$coming.set_monitorable(false)
+	
 	if GlobalStats.dialoguestatus == true and current_dir == "right":
 		$AnimatedSprite2D.flip_h = false
 		$AnimatedSprite2D.play("front_idle")
@@ -56,27 +67,33 @@ func _unhandled_input(_event: InputEvent):
 			return
 
 func player_movement(_delta):
+	
 	if Input.is_action_pressed("ui_right"):
+		sl = true
 		current_dir = "right"
 		play_anim(1)
 		velocity.x = speed
 		velocity.y = 0 
 	elif Input.is_action_pressed("ui_left"):
+		sl = true
 		current_dir = "left"
 		play_anim(1)
 		velocity.x = -speed
 		velocity.y = 0 
 	elif Input.is_action_pressed("ui_down"):
+		sl = true
 		current_dir = "down"
 		play_anim(1)
 		velocity.y = speed
 		velocity.x = 0 
 	elif Input.is_action_pressed("ui_up"):
+		sl = true
 		current_dir = "up"
 		play_anim(1)
 		velocity.y = -speed
 		velocity.x = 0 
 	else:
+		sl = false
 		play_anim(0)
 		velocity.x = 0
 		velocity.y = 0

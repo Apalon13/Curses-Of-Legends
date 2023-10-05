@@ -15,6 +15,9 @@ var player_start_posx = 713
 var player_start_posy = 797
 var game_first_loadin = true
 var regen = 1
+var silence = false
+var posx = 0
+var posy = 0
 
 func finish_changescene():
 	if transition_scene == true:
