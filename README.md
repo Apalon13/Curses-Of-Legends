@@ -1,2 +1,0 @@
-# Curses-Of-Legends
-Hi

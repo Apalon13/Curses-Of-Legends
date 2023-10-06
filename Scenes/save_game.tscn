@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbng10mtvxeyo"]
-
-[ext_resource type="Script" path="res://Scripts/saveGame.gd" id="1_xjf6k"]
-
-[node name="SaveGame" type="Node2D"]
-script = ExtResource("1_xjf6k")

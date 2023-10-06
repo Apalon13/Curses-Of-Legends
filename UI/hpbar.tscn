@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6qoa10ehho5c"]
+
+[ext_resource type="Texture2D" uid="uid://dapxlh7e07j8h" path="res://UI/UI_texture/Hp2.png" id="1_6ycn4"]
+[ext_resource type="Texture2D" uid="uid://7nxcdf71xer6" path="res://UI/UI_texture/HP3.png" id="2_g8n5d"]
+[ext_resource type="Texture2D" uid="uid://6qtf4f5udgfi" path="res://UI/UI_texture/HP.png" id="3_gojeb"]
+[ext_resource type="Script" path="res://UI/UI_script/hpbar.gd" id="4_osvr8"]
+
+[node name="Node2D" type="TextureRect"]
+script = ExtResource("4_osvr8")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -20.0
+offset_right = 16.0
+offset_bottom = 12.0
+texture_under = ExtResource("2_g8n5d")
+texture_over = ExtResource("1_6ycn4")
+texture_progress = ExtResource("3_gojeb")
