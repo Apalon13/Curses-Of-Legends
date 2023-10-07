@@ -526,7 +526,7 @@ animations = [{
 radius = 16.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3wrxg"]
-radius = 6.0
+radius = 8.06226
 
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
@@ -562,13 +562,16 @@ position = Vector2(1, -7)
 shape = SubResource("CircleShape2D_8evxr")
 
 [node name="PlayerHitBox" type="Area2D" parent="Area"]
-collision_mask = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area/PlayerHitBox"]
-position = Vector2(2, -1)
+position = Vector2(2, -2)
 shape = SubResource("CircleShape2D_3wrxg")
 
 [node name="attack_cooldown" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="can_take_damage" type="Timer" parent="."]
 wait_time = 0.5
 
 [node name="HpBar" parent="." instance=ExtResource("3_byvpd")]
@@ -592,7 +595,10 @@ stream = ExtResource("6_us5pa")
 autoplay = true
 
 [connection signal="area_entered" from="Area/AttackHitbox" to="." method="_on_attack_hitbox_area_entered"]
+[connection signal="body_entered" from="Area/PlayerHitBox" to="." method="_on_player_hit_box_body_entered"]
+[connection signal="body_exited" from="Area/PlayerHitBox" to="." method="_on_player_hit_box_body_exited"]
 [connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
+[connection signal="timeout" from="can_take_damage" to="." method="_on_can_take_damage_timeout"]
 [connection signal="pressed" from="CanvasLayer/PlayerMenu/Panel/VBoxContainer/Resume" to="Manager" method="_on_resume_pressed"]
 [connection signal="pressed" from="CanvasLayer/PlayerMenu/Panel/VBoxContainer/Save" to="Manager" method="_on_save_pressed"]
 [connection signal="pressed" from="CanvasLayer/PlayerMenu/Panel/VBoxContainer/Load" to="Manager" method="_on_load_pressed"]

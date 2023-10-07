@@ -9,7 +9,8 @@ var attack_cooldown = false
 var damage = Global.playerDamage
 var attack_ip = false
 var hp = 1
-var player_alive = true	
+var hitboxDamage = false
+var can_take_damage = true
 
 func _ready():
 	area_attack.set_monitoring(false)
@@ -20,13 +21,22 @@ func _ready():
 	HpBar.set_value(hp)
 	HpBar.set_visible(false)
 
+func deal_with_damage():
+	if Global.playerTakeDamage == true and hitboxDamage == true:
+		if can_take_damage == true:
+			hp = hp - Global.enemyDamage
+			can_take_damage = false
+			$can_take_damage.start()
+			if hp <= 0:
+				self.queue_free()
+				
 func attack():
 	if Input.is_action_just_pressed("ui_attack"):
 		if attack_cooldown == false:
 			attack_ip = true
+			animation.play("attack"+direction)
 			area_attack.set_monitoring(true)
 			area_attack.set_monitorable(true)
-			animation.play("attack"+direction)
 			attack_cooldown = true
 			$attack_cooldown.start()
 		else:
@@ -63,8 +73,12 @@ func handleInput():
 	velocity = moveDirection * speed
 	
 func _physics_process(_delta):
+	$HpBar.set_value(hp)
 	Global.playerposx = position.x
 	Global.playerposy = position.y
+	
+	if area_attack.is_monitorable() == false:
+		attack_ip = false
 	
 	if hp != Global.playerhp:
 		$HpBar.set_visible(true)
@@ -72,11 +86,8 @@ func _physics_process(_delta):
 	else:
 		$HpBar.set_visible(false)
 		HpBar.set_value(hp)
-		
-	if hp <= 0:
-		player_alive = false
-		self.queue_free()
-		
+	
+	deal_with_damage()
 	handleInput()
 	move_and_slide()
 	updateAnimation()
@@ -84,10 +95,23 @@ func _physics_process(_delta):
 
 func _on_attack_cooldown_timeout():
 	attack_cooldown = false
-	attack_ip = false
 	area_attack.set_monitoring(false)
 	area_attack.set_monitorable(false)
 
 func _on_attack_hitbox_area_entered(area):
 	if area.has_method("enemy"):
 		Global.playerAttackStatus = true
+
+
+func _on_player_hit_box_body_entered(body):
+	if body.has_method("enemy"):
+		hitboxDamage = true
+
+
+func _on_player_hit_box_body_exited(body):
+	if body.has_method("enemy"):
+		hitboxDamage = false
+
+
+func _on_can_take_damage_timeout():
+	can_take_damage = true

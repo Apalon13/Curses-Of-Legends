@@ -10,6 +10,8 @@ var pos_dict = {}
 var save_p = "user://savegame.save"
 var pos = Vector2(0,0)
 var current_scene = ""
+var playerTakeDamage = false
+var enemyDamage = 0
 
 func save():
 	var save_data = {

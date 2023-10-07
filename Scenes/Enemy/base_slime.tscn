@@ -1,13 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqgx1p0mnuehj"]
+[gd_scene load_steps=3 format=3 uid="uid://bqgx1p0mnuehj"]
 
 [ext_resource type="Script" path="res://Script/Enemy/base_slime.gd" id="1_pmary"]
 [ext_resource type="PackedScene" uid="uid://c6qoa10ehho5c" path="res://UI/hpbar.tscn" id="2_w64xv"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_124a4"]
-radius = 51.0392
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_fgqml"]
-radius = 9.0
 
 [node name="BaseSlime" type="CharacterBody2D"]
 collision_layer = 2
@@ -28,21 +22,24 @@ offset_right = -1.0
 offset_bottom = -23.0
 
 [node name="ake_damage_cooldown" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="attack_cooldown" type="Timer" parent="."]
 
 [node name="Detection" type="Area2D" parent="."]
 collision_layer = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
-shape = SubResource("CircleShape2D_124a4")
 
 [node name="HitBoxDamage" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxDamage"]
-shape = SubResource("CircleShape2D_fgqml")
+[node name="HitBoxAttack" type="Area2D" parent="."]
+collision_layer = 0
 
 [connection signal="timeout" from="ake_damage_cooldown" to="." method="_on_ake_damage_cooldown_timeout"]
+[connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
 [connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
 [connection signal="body_exited" from="Detection" to="." method="_on_detection_body_exited"]
 [connection signal="area_entered" from="HitBoxDamage" to="." method="_on_hit_box_damage_area_entered"]
+[connection signal="body_entered" from="HitBoxAttack" to="." method="_on_hit_box_attack_body_entered"]
+[connection signal="body_exited" from="HitBoxAttack" to="." method="_on_hit_box_attack_body_exited"]

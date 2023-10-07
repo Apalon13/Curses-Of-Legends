@@ -3,10 +3,15 @@ extends CharacterBody2D
 @onready var HpBar = $HpBar
 @export var speed = 100
 @export var HP = 100
+@export var damage = 10
+@export var attack_speed = 1
+@onready var attack_colldown_timer = $attack_cooldown
 var HitboxDamage = false
 var can_take_damage = true
 var player_chase = false
 var player = null
+var attack_ip = false
+var attack_cooldown = true
 
 func _ready():
 	HpBar.set_visible(true)
@@ -16,7 +21,15 @@ func _ready():
 func enemy():
 	pass
 
+func attack():
+	if attack_ip == true and attack_cooldown == false:
+		Global.enemyDamage = damage
+		Global.playerTakeDamage = false
+		attack_cooldown = true
+
 func _physics_process(_delta):
+	attack_colldown_timer.set_wait_time(attack_speed)
+	$HpBar.set_value(HP)
 	if player_chase == true:
 		position += (player.position - position)/speed
 		move_and_slide()
@@ -29,12 +42,12 @@ func _physics_process(_delta):
 		$AnimatedSprite2D.play("slime_idle")
 	
 	deal_with_damage()
+	attack()
 
 func deal_with_damage():
 	if Global.playerAttackStatus == true and HitboxDamage == true:
 		if can_take_damage == true:
 			HP = HP - Global.playerDamage
-			$HpBar.set_value(HP)
 			$ake_damage_cooldown.start()
 			can_take_damage = false
 			if HP <= 0:
@@ -56,3 +69,16 @@ func _on_hit_box_damage_area_entered(area):
 	if area.has_method("pldamage"):
 		HitboxDamage = true
 
+func _on_hit_box_attack_body_entered(body):
+	if body.has_method("player"):
+		attack_ip = true
+		$attack_cooldown.start()
+		
+func _on_hit_box_attack_body_exited(body):
+	if body.has_method("player"):
+		attack_ip = false
+		attack_cooldown = true
+
+func _on_attack_cooldown_timeout():
+	attack_cooldown = false
+	Global.playerTakeDamage = true

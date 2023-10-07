@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://cccxxuci6wqbi"]
+[gd_scene load_steps=20 format=3 uid="uid://cccxxuci6wqbi"]
 
 [ext_resource type="PackedScene" uid="uid://bqgx1p0mnuehj" path="res://Scenes/Enemy/base_slime.tscn" id="1_2eh5x"]
+[ext_resource type="Script" path="res://Script/Enemy/slime.gd" id="2_1arc1"]
 [ext_resource type="Texture2D" uid="uid://bsosnjarebc5p" path="res://Enemy/Enemy_texture/slime.png" id="2_ubdtk"]
 [ext_resource type="Script" path="res://Script/Enemy/HitBoxDamage.gd" id="3_bdgpb"]
 
@@ -90,7 +91,17 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_1bfpy"]
 radius = 6.08276
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_nct5r"]
+radius = 80.2808
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mwydw"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g8qhm"]
+radius = 8.0
+
 [node name="Slime" instance=ExtResource("1_2eh5x")]
+script = ExtResource("2_1arc1")
 
 [node name="Name" parent="." index="0"]
 offset_left = -20.0
@@ -113,8 +124,16 @@ offset_top = -3.0
 offset_right = 0.0
 offset_bottom = -3.0
 
-[node name="HitBoxDamage" parent="." index="6"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection" index="0"]
+shape = SubResource("CircleShape2D_nct5r")
+
+[node name="HitBoxDamage" parent="." index="7"]
 script = ExtResource("3_bdgpb")
 
-[node name="CollisionShape2D" parent="HitBoxDamage" index="0"]
-position = Vector2(0, 3)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxDamage" index="0"]
+position = Vector2(1, 3)
+shape = SubResource("CircleShape2D_mwydw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxAttack" index="0"]
+position = Vector2(1, 3)
+shape = SubResource("CircleShape2D_g8qhm")
